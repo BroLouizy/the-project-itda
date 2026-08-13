@@ -130,7 +130,7 @@
                 <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <i class="fa-solid fa-house"></i> Home
                 </a>
-                <a href="#" class="{{ request()->routeIs('admin.siswa*') ? 'active' : '' }}">
+                <a href="{{ route('admin.siswa.index') }}" class="{{ request()->routeIs('admin.siswa*') ? 'active' : '' }}">
                     <i class="fa-solid fa-users"></i> Kelola Siswa
                 </a>
                 <a href="#" class="{{ request()->routeIs('admin.pertanyaan*') ? 'active' : '' }}">
