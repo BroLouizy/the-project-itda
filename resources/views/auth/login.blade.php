@@ -90,6 +90,21 @@
             text-decoration: none;
         }
 
+        .forgot-password {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password a {
+            color: #173b70;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
         .error {
             background: #ffe5e5;
             color: #b00020;
@@ -163,10 +178,16 @@
 
     </form>
 
-    <div class="register">
-        Belum punya akun?
-        <a href="/register">Daftar sekarang</a>
-    </div>
+    <div class="forgot-password">
+    <a href="{{ route('password.request') }}">
+        Lupa password?
+    </a>
+</div>
+
+<div class="register">
+    Belum punya akun?
+    <a href="/register">Daftar sekarang</a>
+</div>
 
 </div>
 
