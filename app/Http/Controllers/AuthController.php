@@ -6,6 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
+use App\Mail\RegistrationSuccessMail;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -28,7 +31,7 @@ class AuthController extends Controller
             'password' => 'required|min:8|confirmed',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
@@ -40,6 +43,10 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             'role' => 'student',
         ]);
+
+Mail::to($user->email)->send(
+    new RegistrationSuccessMail($user)
+);
 
         return redirect('/login')->with(
             'success',
@@ -85,4 +92,30 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
+public function showForgotPassword()
+{
+    return view('auth.forgot-password');
 }
+
+public function sendResetLink(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email',
+    ]);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    if ($status === Password::RESET_LINK_SENT) {
+        return back()->with(
+            'success',
+            'Link reset password sudah dikirim ke email.'
+        );
+    }
+
+    return back()->withErrors([
+        'email' => 'Email tidak ditemukan.',
+    ]);
+}
+    }

@@ -29,11 +29,29 @@ Route::post('/login', [AuthController::class, 'login']);
 
 /*
 |--------------------------------------------------------------------------
+| Lupa Password
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/forgot-password', [AuthController::class, 'showForgotPassword'])
+    ->name('password.request');
+
+Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])
+    ->name('password.email');
+
+/*
+|--------------------------------------------------------------------------
 | Logout
 |--------------------------------------------------------------------------
 */
 
+<<<<<<< HEAD
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+=======
+Route::post('/logout', [AuthController::class, 'logout']);
+
+Route::middleware('auth')->group(function () {
+>>>>>>> d0d2cbc (lupa password)
 
 /*
 |--------------------------------------------------------------------------
