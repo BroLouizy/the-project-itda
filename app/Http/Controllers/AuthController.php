@@ -64,10 +64,10 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->role === 'admin') {
-                return redirect('/admin/dashboard');
+                return redirect()->route('admin.dashboard');
             }
 
-            return redirect('/dashboard');
+            return redirect()->route('student.dashboard');
         }
 
         return back()->withErrors([
