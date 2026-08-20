@@ -43,6 +43,35 @@
             margin-bottom: 20px;
         }
 
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 45px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-password svg {
+            width: 22px;
+            height: 22px;
+            stroke: #555;
+            fill: none;
+            stroke-width: 2;
+        }
+
         label {
             display: block;
             margin-bottom: 7px;
@@ -164,12 +193,22 @@
         <div class="form-group">
             <label>Password</label>
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Masukkan password"
-                required
-            >
+            <div class="password-wrapper">
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Masukkan password"
+                    required
+                >
+
+                <span class="toggle-password" onclick="togglePassword()">
+                    <svg id="eyeIcon" viewBox="0 0 24 24">
+                        <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </span>
+            </div>
         </div>
 
         <button type="submit" class="btn">
@@ -190,6 +229,31 @@
 </div>
 
 </div>
+
+<script>
+    function togglePassword() {
+        const password = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        if (password.type === 'password') {
+            password.type = 'text';
+
+            eyeIcon.innerHTML = `
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+            `;
+        } else {
+            password.type = 'password';
+
+            eyeIcon.innerHTML = `
+                <path d="M3 3l18 18"/>
+                <path d="M10.6 6.2A10.8 10.8 0 0 1 12 6c6.5 0 10 6 10 6a18 18 0 0 1-4.2 4.5"/>
+                <path d="M6.1 6.1C3.5 7.8 2 12 2 12s3.5 6 10 6c1.8 0 3.3-.4 4.6-1"/>
+                <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>
+            `;
+        }
+    }
+</script>
 
 </body>
 </html>
