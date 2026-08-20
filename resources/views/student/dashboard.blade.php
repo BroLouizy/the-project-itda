@@ -447,43 +447,274 @@
     </div>
 
 
-    {{-- =====================================================
-        CTA BAWAH
-    ====================================================== --}}
+   {{-- =====================================================
+    CONTACT PERSON ITDA
+====================================================== --}}
 
-    @if (!$sudahTes)
+<div class="mt-5 mb-4">
 
-        <div class="card border-0 shadow-sm bg-primary text-white mb-4"
-             style="border-radius: 20px;">
+    <div class="card border-0 shadow-sm"
+         style="border-radius: 16px; background: #fff;">
 
-            <div class="card-body text-center p-4 p-md-5">
+        <div class="card-body p-4 p-md-5">
 
-                <i class="fa-solid fa-rocket fa-2x mb-3"></i>
+            <div class="text-center mb-4">
 
-                <h3 class="fw-bold">
-                    Siap Mengenal Potensimu?
-                </h3>
+                <h5 class="fw-bold mb-2">
+                    KUNJUNGI ITDA
+                </h5>
 
-                <p class="mb-4 opacity-75">
-                    Luangkan beberapa menit untuk mengikuti tes
-                    dan temukan bidang yang sesuai dengan dirimu.
+                <p class="text-muted mb-0">
+                    Informasi dan kontak ITDA
                 </p>
 
-                <a href="{{ Route::has('tes.mulai') ? route('tes.mulai') : '#' }}"
-                   class="btn btn-light btn-lg px-4"
-                   style="border-radius: 12px;">
+            </div>
 
-                    <i class="fa-solid fa-play me-2"></i>
-                    Mulai Tes Sekarang
+            <div class="row justify-content-center g-4">
 
-                </a>
+                {{-- Lokasi --}}
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="d-flex align-items-start gap-3">
+
+                        <div class="d-flex align-items-center justify-content-center"
+                             style="
+                                width: 42px;
+                                height: 42px;
+                                min-width: 42px;
+                                border-radius: 10px;
+                                background: #eef4ff;
+                                color: #1264ff;
+                             ">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <div>
+                            <small class="text-muted d-block">
+                                Lokasi
+                            </small>
+
+                            <span>
+                                Lokasi Kampus
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                {{-- Email --}}
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="d-flex align-items-start gap-3">
+
+                        <div class="d-flex align-items-center justify-content-center"
+                             style="
+                                width: 42px;
+                                height: 42px;
+                                min-width: 42px;
+                                border-radius: 10px;
+                                background: #eef4ff;
+                                color: #1264ff;
+                             ">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                        </div>
+
+                        <div>
+                            <small class="text-muted d-block">
+                                Email
+                            </small>
+
+                            <span>
+                                info@itda.ac.id
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                {{-- Telepon --}}
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="d-flex align-items-start gap-3">
+
+                        <div class="d-flex align-items-center justify-content-center"
+                             style="
+                                width: 42px;
+                                height: 42px;
+                                min-width: 42px;
+                                border-radius: 10px;
+                                background: #eef4ff;
+                                color: #1264ff;
+                             ">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <div>
+                            <small class="text-muted d-block">
+                                Hunting
+                            </small>
+
+                            <span>
+                                +62 274 451262
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                {{-- Telp --}}
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="d-flex align-items-start gap-3">
+
+                        <div class="d-flex align-items-center justify-content-center"
+                             style="
+                                width: 42px;
+                                height: 42px;
+                                min-width: 42px;
+                                border-radius: 10px;
+                                background: #eef4ff;
+                                color: #1264ff;
+                             ">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <div>
+                            <small class="text-muted d-block">
+                                Telepon
+                            </small>
+
+                            <span>
+                                +62 274 451263
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                {{-- Fax --}}
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="d-flex align-items-start gap-3">
+
+                        <div class="d-flex align-items-center justify-content-center"
+                             style="
+                                width: 42px;
+                                height: 42px;
+                                min-width: 42px;
+                                border-radius: 10px;
+                                background: #eef4ff;
+                                color: #1264ff;
+                             ">
+
+                            <i class="fa-solid fa-fax"></i>
+
+                        </div>
+
+                        <div>
+                            <small class="text-muted d-block">
+                                Fax
+                            </small>
+
+                            <span>
+                                +62274451265
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {{-- SOCIAL MEDIA --}}
+            <div class="text-center mt-5">
+
+                <div class="d-flex justify-content-center gap-2">
+
+                    <a href="#"
+                       class="d-flex align-items-center justify-content-center text-secondary"
+                       style="
+                            width: 46px;
+                            height: 46px;
+                            border: 1px solid #dee2e6;
+                            border-radius: 10px;
+                            text-decoration: none;
+                       ">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="d-flex align-items-center justify-content-center text-secondary"
+                       style="
+                            width: 46px;
+                            height: 46px;
+                            border: 1px solid #dee2e6;
+                            border-radius: 10px;
+                            text-decoration: none;
+                       ">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="d-flex align-items-center justify-content-center text-secondary"
+                       style="
+                            width: 46px;
+                            height: 46px;
+                            border: 1px solid #dee2e6;
+                            border-radius: 10px;
+                            text-decoration: none;
+                       ">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="d-flex align-items-center justify-content-center text-secondary"
+                       style="
+                            width: 46px;
+                            height: 46px;
+                            border: 1px solid #dee2e6;
+                            border-radius: 10px;
+                            text-decoration: none;
+                       ">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
 
-    @endif
+    </div>
 
 </div>
-
 @endsection
