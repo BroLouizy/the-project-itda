@@ -6,25 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('phone', 20)->nullable();
-            $table->string('school_name', 150)->nullable();
-            $table->string('province', 100)->nullable();
-            $table->string('school_type', 20)->nullable();
-            $table->string('class_level', 20)->nullable();
-            $table->string('major', 100)->nullable();
-            $table->string('role', 20)->default('student');
+            $table->string('phone', 20)->after('name');
+            $table->string('school_name', 150)->after('phone');
+            $table->string('province', 100)->after('school_name');
+            $table->enum('school_type', ['SMA', 'SMK', 'MA', 'MAK'])->after('province');
+            $table->enum('class_level', ['X', 'XI', 'XII'])->after('school_type');
+            $table->string('major', 100)->after('class_level');
+            $table->string('role')->default('student')->after('major');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {

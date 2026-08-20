@@ -19,7 +19,8 @@ class ForgotPasswordOtpMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Kode OTP Reset Password - Tes Minat & Bakat')
-                    ->view('emails.forgot-password-otp');
+        return $this
+            ->subject('Kode OTP Reset Password')
+            ->view('emails.forgot-password-otp');
     }
 }
