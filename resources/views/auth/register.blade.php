@@ -73,6 +73,16 @@
             padding-right: 45px;
         }
 
+        /* MATIKAN ikon mata bawaan browser (Edge & Chrome) */
+        .password-wrapper input[type="password"]::-ms-reveal,
+        .password-wrapper input[type="password"]::-ms-clear {
+            display: none;
+        }
+
+        .password-wrapper input::-webkit-textfield-decoration-container {
+            visibility: hidden;
+        }
+
         .toggle-password {
             position: absolute;
             right: 13px;
@@ -264,8 +274,10 @@
 
                 <span class="toggle-password" onclick="togglePassword('password', 'eyeIcon1')">
                     <svg id="eyeIcon1" viewBox="0 0 24 24">
-                        <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
-                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M3 3l18 18"/>
+                        <path d="M10.6 6.2A10.8 10.8 0 0 1 12 6c6.5 0 10 6 10 6a18 18 0 0 1-4.2 4.5"/>
+                        <path d="M6.1 6.1C3.5 7.8 2 12 2 12s3.5 6 10 6c1.8 0 3.3-.4 4.6-1"/>
+                        <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>
                     </svg>
                 </span>
             </div>
@@ -285,8 +297,10 @@
 
         <span class="toggle-password" onclick="togglePassword('password_confirmation', 'eyeIcon2')">
             <svg id="eyeIcon2" viewBox="0 0 24 24">
-                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
-                <circle cx="12" cy="12" r="3"/>
+                <path d="M3 3l18 18"/>
+                <path d="M10.6 6.2A10.8 10.8 0 0 1 12 6c6.5 0 10 6 10 6a18 18 0 0 1-4.2 4.5"/>
+                <path d="M6.1 6.1C3.5 7.8 2 12 2 12s3.5 6 10 6c1.8 0 3.3-.4 4.6-1"/>
+                <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>
             </svg>
         </span>
     </div>
