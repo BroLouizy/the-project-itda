@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Student\SettingController;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
@@ -61,13 +62,19 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 /*
 |--------------------------------------------------------------------------
-| Dashboard Siswa
+| Dashboard Siswa & Setting Profil
 |--------------------------------------------------------------------------
 */
 
 Route::middleware(['auth', 'role:student'])->group(function () {
     Route::get('/dashboard', [StudentDashboardController::class, 'index'])
         ->name('student.dashboard');
+
+    Route::get('/setting', [SettingController::class, 'index'])
+        ->name('student.setting');
+
+    Route::post('/setting', [SettingController::class, 'update'])
+        ->name('student.setting.update');
 });
 
 /*

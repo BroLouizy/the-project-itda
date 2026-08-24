@@ -145,11 +145,17 @@
 
 <body>
 
-    {{-- HEADER --}}
+    {{-- HEADER --}}    
     <div class="top-header">
 
         <div class="avatar-circle">
-            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+            @if (auth()->user()->profile_photo)
+                <img src="{{ asset('storage/' . auth()->user()->profile_photo) }}"
+                    alt="Foto Profil"
+                    style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            @else
+                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+            @endif
         </div>
 
         <div>
@@ -198,6 +204,15 @@
 
                     <i class="fa-solid fa-chart-simple"></i>
                     Hasil
+
+                </a>
+
+
+                <a href="{{ route('student.setting') }}"
+                   class="{{ request()->routeIs('student.setting') ? 'active' : '' }}">
+
+                    <i class="fa-solid fa-gear"></i>
+                    Setting
 
                 </a>
 
