@@ -8,7 +8,7 @@
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif
 
-<div class="card p-4 shadow-sm border-0" style="border-radius: 12px; max-width: 700px;">
+<div class="card p-4 shadow-sm border-0" style="border-radius: 12px; width: 100%;">
 
     <h5 class="mb-4">Pengaturan Profil</h5>
 

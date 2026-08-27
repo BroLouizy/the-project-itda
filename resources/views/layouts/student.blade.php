@@ -212,7 +212,7 @@
                    class="{{ request()->routeIs('student.setting') ? 'active' : '' }}">
 
                     <i class="fa-solid fa-gear"></i>
-                    Setting
+                    Profile
 
                 </a>
 
