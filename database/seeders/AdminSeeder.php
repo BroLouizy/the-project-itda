@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
                 'phone' => '000000000000',
                 'password' => Hash::make('admin12345'),
                 'role' => 'admin',
-                'profile_photo' => 'profile-photos/admin.png',
+                'profile_photo' => 'profile-photos/admin-avatar.png',
                 'school_name' => null,
                 'province' => null,
                 'school_type' => null,

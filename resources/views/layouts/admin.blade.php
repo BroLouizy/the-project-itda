@@ -33,8 +33,8 @@
             width: 55px;
             height: 55px;
             border-radius: 50%;
-            background: #8e44ad;
-            color: #fff;
+            background: #F4FAFC;
+            color: #ffff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -45,7 +45,7 @@
         .top-header h5 { margin: 0; font-weight: 700; }
         .top-header small { color: #6c757d; }
         .badge-admin {
-            background: #8e44ad;
+            background: #000080;
             color: #fff;
             padding: 4px 12px;
             border-radius: 20px;
@@ -91,9 +91,9 @@
         }
         .sidebar a.active {
             background: #f3ecfb;
-            color: #8e44ad;
+            color: #000080;
             font-weight: 600;
-            border-left: 3px solid #8e44ad;
+            border-left: 3px solid #000080;
         }
         .sidebar .logout-form {
             margin-top: auto;
@@ -114,7 +114,7 @@
     <div class="top-header">
         <div class="header-left">
             <div class="avatar-circle">
-                <img src="{{ asset('images/admin-avatar.jpg') }}"
+                <img src="{{ asset('images/admin-avatar.png') }}"
                     alt="Foto Admin"
                     style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
             </div>
