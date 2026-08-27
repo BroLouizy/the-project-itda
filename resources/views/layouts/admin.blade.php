@@ -114,7 +114,9 @@
     <div class="top-header">
         <div class="header-left">
             <div class="avatar-circle">
-                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                <img src="{{ asset('images/admin-avatar.jpg') }}"
+                    alt="Foto Admin"
+                    style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
             </div>
             <div>
                 <h5>{{ auth()->user()->name }}</h5>
