@@ -42,10 +42,10 @@
                     <div class="col-lg-7">
 
                         <div class="d-flex align-items-center mb-3">
-                            <div class="rounded-circle bg-success bg-opacity-10
+                            <div class="rounded-circle bg-teal bg-opacity-10
                                         d-flex align-items-center justify-content-center me-3"
                                  style="width: 55px; height: 55px;">
-                                <i class="fa-solid fa-graduation-cap text-success fs-4"></i>
+                                <i class="fa-solid fa-graduation-cap text-teal fs-4"></i>
                             </div>
 
                             <div>
@@ -72,7 +72,7 @@
                                 Tingkat Kecocokan
                             </span>
 
-                            <strong class="text-success">
+                            <strong class="text-teal">
                                 {{ $hasilTerakhir->persentase }}%
                             </strong>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="progress mb-4"
                              style="height: 14px; border-radius: 20px;">
 
-                            <div class="progress-bar bg-success"
+                            <div class="progress-bar bg-teal"
                                  role="progressbar"
                                  style="width: {{ $hasilTerakhir->persentase }}%; border-radius: 20px;"
                                  aria-valuenow="{{ $hasilTerakhir->persentase }}"
@@ -120,11 +120,11 @@
                     {{-- ICON / ILUSTRASI --}}
                     <div class="col-lg-5 text-center mt-4 mt-lg-0">
 
-                        <div class="mx-auto rounded-4 bg-success bg-opacity-10
+                        <div class="mx-auto rounded-4 bg-teal bg-opacity-10
                                     d-flex align-items-center justify-content-center"
                              style="width: 190px; height: 190px;">
 
-                            <i class="fa-solid fa-award text-success"
+                            <i class="fa-solid fa-award text-teal"
                                style="font-size: 90px;">
                             </i>
 
@@ -305,12 +305,12 @@
             <div class="card h-100 border-0 shadow-sm text-center p-4"
                  style="border-radius: 16px;">
 
-                <div class="rounded-circle bg-success bg-opacity-10
+                <div class="rounded-circle bg-teal bg-opacity-10
                             d-flex align-items-center justify-content-center
                             mx-auto mb-3"
                      style="width: 70px; height: 70px;">
 
-                    <i class="fa-solid fa-graduation-cap text-success fs-3"></i>
+                    <i class="fa-solid fa-graduation-cap text-teal fs-3"></i>
 
                 </div>
 
@@ -421,11 +421,11 @@
 
                 <div class="d-flex align-items-center mb-3">
 
-                    <div class="rounded-3 bg-success bg-opacity-10
+                    <div class="rounded-3 bg-teal bg-opacity-10
                                 d-flex align-items-center justify-content-center me-3"
                          style="width: 50px; height: 50px;">
 
-                        <i class="fa-solid fa-graduation-cap text-success fs-4"></i>
+                        <i class="fa-solid fa-graduation-cap text-teal fs-4"></i>
 
                     </div>
 
@@ -635,7 +635,7 @@
                             </small>
 
                             <span>
-                                +62274451265
+                                +62 274451265
                             </span>
 
                         </div>
