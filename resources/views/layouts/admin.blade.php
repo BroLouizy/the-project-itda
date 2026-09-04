@@ -433,8 +433,7 @@
                 </a>
 
 
-                <a href="#"
-                   class="{{ request()->routeIs('admin.pertanyaan.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.pertanyaan.index') }}" class="{{ request()->routeIs('admin.pertanyaan.*') ? 'active' : '' }}">
 
                     <i class="fa-solid fa-clipboard-question"></i>
                     Kelola Pertanyaan
@@ -442,8 +441,7 @@
                 </a>
 
 
-                <a href="#"
-                   class="{{ request()->routeIs('admin.hasil.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.hasil.index') }}" class="{{ request()->routeIs('admin.hasil.*') ? 'active' : '' }}">
 
                     <i class="fa-solid fa-chart-simple"></i>
                     Hasil Tes Siswa

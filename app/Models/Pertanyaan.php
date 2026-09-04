@@ -10,6 +10,7 @@ class Pertanyaan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nomor_urut',
         'teks_pertanyaan',
     ];
 

@@ -11,7 +11,8 @@ class OpsiJawaban extends Model
 
     protected $fillable = [
         'pertanyaan_id',
-        'teks_opsi',
+        'label',
+        'gambar_opsi',
         'jurusan_kuliah_id',
     ];
 

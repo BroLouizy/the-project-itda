@@ -19,6 +19,7 @@ class TesResult extends Model
 
     protected $casts = [
         'detail_skor' => 'array',
+        'tanggal_tes' => 'datetime',
     ];
 
     public function user()
