@@ -404,19 +404,14 @@
 
         <div class="header-left">
 
-            <div class="avatar-circle">
+            <div class="avatar-circle" id="headerAvatar">
 
-                @if (auth()->user()->profile_photo)
-
-                    <img src="{{ asset('storage/' . auth()->user()->profile_photo) }}"
-                         alt="Foto Profil"
-                         style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-
-                @else
-
-                    {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-
-                @endif
+                <img id="headerAvatarImg"
+                     src="{{ auth()->user()->profile_photo
+                         ? asset('storage/' . auth()->user()->profile_photo)
+                         : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=2c5cf5&color=fff' }}"
+                     alt="Foto Profil"
+                     style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
 
             </div>
 

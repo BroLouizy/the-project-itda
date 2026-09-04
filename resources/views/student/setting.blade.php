@@ -29,24 +29,46 @@
         <form method="POST" action="{{ route('student.setting.update') }}" enctype="multipart/form-data">
             @csrf
 
-            {{-- FOTO PROFIL --}}
+           {{-- FOTO PROFIL --}}
             <div class="text-center mb-5">
-                <label class="photo-upload-wrapper" style="cursor: pointer;">
+
+                <input
+                    type="file"
+                    id="profile_photo"
+                    name="photo"
+                    accept="image/jpeg,image/png"
+                    style="display: none;"
+                    onchange="previewPhoto(event)"
+                >
+
+                <label for="profile_photo" class="photo-upload-wrapper">
+
                     <img
-                        src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : 'https://ui-avatars.com/api/?name=' . urlencode($user->name) . '&size=140&background=2c5cf5&color=fff' }}"
+                        id="photoPreview"
+                        src="{{ $user->profile_photo
+                            ? asset('storage/' . $user->profile_photo)
+                            : 'https://ui-avatars.com/api/?name=' . urlencode($user->name) . '&size=140&background=2c5cf5&color=fff' }}"
                         alt="Foto Profil"
                         class="photo-preview"
                     >
+
                     <div class="photo-overlay">
                         <i class="fa-solid fa-camera"></i>
                         <span>Ganti Foto</span>
                     </div>
-                    <input type="file" name="photo" accept="image/*" style="display: none;" onchange="this.form.submit()">
+
                 </label>
+
                 <p class="text-muted mt-3 mb-0" style="font-size: 13px;">
                     Klik foto untuk mengganti. Format JPG/PNG, maks. 2MB.
                 </p>
-                @error('photo') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
+
+                @error('photo')
+                    <div class="text-danger small mt-1">
+                        {{ $message }}
+                    </div>
+                @enderror
+
             </div>
 
             {{-- SECTION: DATA PRIBADI --}}
@@ -212,5 +234,27 @@
         font-size: 16px;
     }
 </style>
+
+<script>
+    function previewPhoto(event) {
+        const input = event.target;
+        const preview = document.getElementById('photoPreview');
+        const headerAvatar = document.getElementById('headerAvatarImg');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+
+                if (headerAvatar) {
+                    headerAvatar.src = e.target.result;
+                }
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 
 @endsection
