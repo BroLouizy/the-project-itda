@@ -16,7 +16,7 @@
     ">
 
         <h2 style="color:#173b70;">
-            Pendaftaran Berhasil 🎉
+            Pendaftaran Berhasil 
         </h2>
 
         <p>
@@ -24,8 +24,8 @@
         </p>
 
         <p>
-            Selamat! Akun kamu berhasil dibuat pada sistem
-            <strong>Tes Minat & Bakat Program Studi</strong>.
+            Selamat! Akun kamu berhasil dibuat pada 
+            <strong>SIMPRODI</strong>.
         </p>
 
         <p>

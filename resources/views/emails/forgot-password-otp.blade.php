@@ -21,7 +21,7 @@
 
         <p>
             Anda meminta untuk melakukan reset password akun
-            Tes Minat & Bakat.
+            SIMPRODI.
         </p>
 
         <p>
