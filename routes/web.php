@@ -11,9 +11,7 @@ use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Admin\HasilTesController;
 use App\Http\Controllers\Admin\PertanyaanController;
 
-Route::get('/', function () {
-    return redirect('/login');
-});
+Route::redirect('/', '/login');
 
 /*
 |--------------------------------------------------------------------------
