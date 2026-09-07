@@ -20,7 +20,7 @@ class RegistrationSuccessMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Pendaftaran Berhasil - Tes Minat & Bakat')
+        return $this->subject('Pendaftaran Berhasil - SIMPRODI')
                     ->view('emails.registration-success');
     }
 }
