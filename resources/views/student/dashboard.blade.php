@@ -447,557 +447,645 @@
     </div>
 
 
- {{-- =====================================================
-    CONTACT PERSON ITDA
-===================================================== --}}
+<!-- KUNJUNGI ITDA -->
+<section class="itda-contact-section">
+    <div class="itda-contact-card">
 
-<div class="contact-section mt-5 mb-4">
-
-<div class="card border-0 shadow-sm contact-card">
-
-    <div class="card-body p-4 p-md-5">
-
-
-        {{-- =================================================
-            JUDUL
-        ================================================== --}}
-
-        <div class="text-center mb-5">
-
-            <span class="contact-title">
-                KUNJUNGI ITDA
-            </span>
-
-            <p class="text-muted mb-0 mt-2">
-                Informasi dan kontak ITDA
-            </p>
-
-        </div>
-
-
-        {{-- =================================================
-            INFORMASI KONTAK
-        ================================================== --}}
-
-        <div class="row justify-content-center g-4">
-
-
-            {{-- LOKASI --}}
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-
-                        <i class="fa-solid fa-location-dot"></i>
-
-                    </div>
-
-                    <div>
-
-                        <small class="text-muted d-block">
-                            Lokasi
-                        </small>
-
-                        <span class="contact-value">
-                            Lokasi Kampus
-                        </span>
-
-                    </div>
-
-                </div>
-
+        <!-- Header -->
+        <div class="itda-contact-header">
+            <div class="itda-contact-header-icon">
+                <i class="fa-solid fa-building-columns"></i>
             </div>
 
+            <div>
+                <h3>Kunjungi ITDA</h3>
+                <p>Informasi kontak dan media sosial Institut Teknologi Dirgantara Adisutjipto</p>
+            </div>
+        </div>
 
-            {{-- EMAIL --}}
+        <!-- Contact Grid -->
+        <div class="contact-grid">
 
-            <div class="col-md-6 col-lg-4">
+            <!-- Lokasi -->
+            <a href="LINK_GOOGLE_MAPS"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="contact-box contact-link contact-location">
 
-                <div class="contact-item">
+                <div class="contact-box-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
 
-                    <div class="contact-icon">
+                <div class="contact-box-content">
+                    <span class="contact-label">Lokasi</span>
 
-                        <i class="fa-regular fa-envelope"></i>
+                    <strong>
+                        Institut Teknologi Dirgantara Adisutjipto
+                    </strong>
 
+                    <small class="location-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        Lihat di Google Maps
+                    </small>
+                </div>
+
+            </a>
+
+
+            <!-- Email -->
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@itda.ac.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-box contact-link">
+
+                    <div class="contact-box-icon">
+                        <i class="fa-solid fa-envelope"></i>
                     </div>
 
-                    <div>
+                    <div class="contact-box-content">
+                        <span class="contact-label">Email</span>
 
-                        <small class="text-muted d-block">
-                            Email
-                        </small>
-
-                        <span class="contact-value">
+                        <strong>
                             info@itda.ac.id
-                        </span>
+                        </strong>
 
+                        <small class="contact-action">
+                            <i class="fa-solid fa-envelope"></i>
+                            Buka Gmail
+                        </small>
                     </div>
 
+                </a>
+
+
+            <!-- Hunting -->
+            <a href="tel:+62274451262"
+               class="contact-box contact-link">
+
+                <div class="contact-box-icon">
+                    <i class="fa-solid fa-phone"></i>
                 </div>
 
-            </div>
+                <div class="contact-box-content">
+                    <span class="contact-label">Hunting</span>
 
+                    <strong>
+                        +62 274 451262
+                    </strong>
 
-            {{-- HUNTING --}}
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-
+                    <small class="contact-action">
                         <i class="fa-solid fa-phone"></i>
-
-                    </div>
-
-                    <div>
-
-                        <small class="text-muted d-block">
-                            Hunting
-                        </small>
-
-                        <span class="contact-value">
-                            +62 274 451262
-                        </span>
-
-                    </div>
-
+                        Hubungi sekarang
+                    </small>
                 </div>
 
-            </div>
+            </a>
 
 
-            {{-- TELEPON --}}
+            <!-- Telepon -->
+            <a href="tel:+62274451263"
+               class="contact-box contact-link">
 
-            <div class="col-md-6 col-lg-4">
+                <div class="contact-box-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </div>
 
-                <div class="contact-item">
+                <div class="contact-box-content">
+                    <span class="contact-label">Telepon</span>
 
-                    <div class="contact-icon">
+                    <strong>
+                        +62 274 451263
+                    </strong>
 
+                    <small class="contact-action">
                         <i class="fa-solid fa-phone"></i>
-
-                    </div>
-
-                    <div>
-
-                        <small class="text-muted d-block">
-                            Telepon
-                        </small>
-
-                        <span class="contact-value">
-                            +62 274 451263
-                        </span>
-
-                    </div>
-
+                        Hubungi sekarang
+                    </small>
                 </div>
 
-            </div>
+            </a>
 
 
-            {{-- FAX --}}
+            <!-- Fax -->
+            <a href="tel:+62274451265"
+               class="contact-box contact-link">
 
-            <div class="col-md-6 col-lg-4">
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-
-                        <i class="fa-solid fa-fax"></i>
-
-                    </div>
-
-                    <div>
-
-                        <small class="text-muted d-block">
-                            Fax
-                        </small>
-
-                        <span class="contact-value">
-                            +62 274451265
-                        </span>
-
-                    </div>
-
+                <div class="contact-box-icon">
+                    <i class="fa-solid fa-fax"></i>
                 </div>
 
-            </div>
+                <div class="contact-box-content">
+                    <span class="contact-label">Fax</span>
+
+                    <strong>
+                        +62 274 451265
+                    </strong>
+
+                    <small class="contact-action">
+                        <i class="fa-solid fa-phone"></i>
+                        Hubungi nomor
+                    </small>
+                </div>
+
+            </a>
 
         </div>
 
 
-        {{-- =================================================
-            SOCIAL MEDIA
-        ================================================== --}}
-
+        <!-- SOCIAL MEDIA -->
         <div class="social-media-section">
 
-            <p class="text-muted small mb-3">
-                Ikuti ITDA di media sosial
-            </p>
+            <div class="social-divider"></div>
 
+            <div class="social-media-header">
+                <span>Ikuti Kami</span>
+                <p>Temukan informasi terbaru melalui media sosial ITDA</p>
+            </div>
 
             <div class="social-media-list">
 
-
-                {{-- FACEBOOK --}}
-
-                <a href="https://www.facebook.com/ITDA.YK"
+                <!-- Facebook -->
+                <a href="MASUKKAN_LINK_FACEBOOK_DI_SINI"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="social-media-link facebook"
-                   aria-label="Facebook ITDA"
-                   title="Facebook">
+                   class="social-item facebook">
 
                     <i class="fa-brands fa-facebook-f"></i>
+                    <span>Facebook</span>
 
                 </a>
 
-                {{-- INSTAGRAM --}}
 
-                <a href="https://www.instagram.com/itda.yogyakarta/"
+                <!-- Instagram -->
+                <a href="MASUKKAN_LINK_INSTAGRAM_DI_SINI"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="social-media-link instagram"
-                   aria-label="Instagram ITDA"
-                   title="Instagram">
+                   class="social-item instagram">
 
                     <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
 
                 </a>
 
 
-                {{-- YOUTUBE --}}
-
-                <a href="https://www.youtube.com/@itda.yogyakarta"
+                <!-- YouTube -->
+                <a href="MASUKKAN_LINK_YOUTUBE_DI_SINI"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="social-media-link youtube"
-                   aria-label="YouTube ITDA"
-                   title="YouTube">
+                   class="social-item youtube">
 
                     <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube</span>
 
                 </a>
 
 
-                {{-- TIKTOK --}}
-
-                <a href="https://www.tiktok.com/@itda.yogyakarta"
+                <!-- TikTok -->
+                <a href="MASUKKAN_LINK_TIKTOK_DI_SINI"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="social-media-link tiktok"
-                   aria-label="TikTok ITDA"
-                   title="TikTok">
+                   class="social-item tiktok">
 
                     <i class="fa-brands fa-tiktok"></i>
+                    <span>TikTok</span>
 
                 </a>
-
 
             </div>
 
         </div>
 
-
     </div>
-
-</div>
-
-</div>
+</section>
 
 
-                {{-- =====================================================
-                CSS CONTACT & SOCIAL MEDIA
-                ===================================================== --}}
+{{-- =====================================================
+    CSS KUNJUNGI ITDA
+===================================================== --}}
 
-                <style>
+<style>
 
-                /* =====================================================
-                CONTACT CARD
-                ===================================================== */
+/* =====================================================
+   MAIN CONTACT CARD
+===================================================== */
 
-                .contact-card {
+.itda-contact-section {
+    margin-top: 48px;
+    margin-bottom: 20px;
+}
 
-                border-radius: 18px;
+.itda-contact-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+}
 
-                background: #fff;
-
-                }
-
-
-                /* =====================================================
-                CONTACT TITLE
-                ===================================================== */
-
-                .contact-title {
-
-                font-size: 24px;
-
-                font-weight: 700;
-
-                color: #172b4d;
-
-                }
+.itda-contact-card .card-body {
+    padding: 42px 48px 38px;
+}
 
 
-                /* =====================================================
-                CONTACT ITEM
-                ===================================================== */
+/* =====================================================
+   HEADER
+===================================================== */
 
-                .contact-item {
+.itda-contact-header {
+    margin-bottom: 34px;
+}
 
-                display: flex;
+.itda-contact-badge {
+    width: 52px;
+    height: 52px;
 
-                align-items: center;
+    margin: 0 auto 14px;
 
-                gap: 14px;
+    border-radius: 14px;
 
-                min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                }
+    background: #eef4ff;
+    color: #1264ff;
+
+    font-size: 21px;
+}
+
+.itda-contact-header h3 {
+    margin: 0;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #172b4d;
+
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.itda-contact-header p {
+    margin: 7px 0 0;
+
+    color: #6c757d;
+
+    font-size: 14px;
+}
 
 
-                /* =====================================================
-                CONTACT ICON
-                ===================================================== */
+/* =====================================================
+   CONTACT GRID
+===================================================== */
 
-                .contact-icon {
+.contact-grid {
+    display: grid;
 
-                width: 46px;
+    grid-template-columns: repeat(3, 1fr);
 
-                height: 46px;
+    gap: 14px;
+}
 
-                min-width: 46px;
 
-                border-radius: 12px;
+/* =====================================================
+   CONTACT BOX
+===================================================== */
 
-                background: #eef4ff;
+.contact-box {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 13px;
+
+    background: #fafbfd;
+
+    transition: all 0.25s ease;
+}
+
+.contact-box:hover {
+    background: #ffffff;
+
+    border-color: #dce7ff;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 18px rgba(23, 59, 112, 0.07);
+}
+
+
+/* =====================================================
+   CONTACT ICON
+===================================================== */
+
+.contact-box-icon {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eef4ff;
+
+    color: #1264ff;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   CONTACT TEXT
+===================================================== */
+
+.contact-box-content {
+    min-width: 0;
+}
+
+.contact-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #7a8494;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+.contact-box-content strong {
+    display: block;
+
+    color: #172b4d;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+            /* =====================================================
+            LOKASI GOOGLE MAPS
+            ===================================================== */
+
+            .contact-location {
+                color: inherit;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .contact-location:hover {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .contact-location .contact-box-content {
+                flex: 1;
+            }
+
+            .location-link {
+                display: block;
+
+                margin-top: 5px;
 
                 color: #1264ff;
 
-                display: flex;
+                font-size: 11px;
 
-                align-items: center;
+                font-weight: 500;
 
-                justify-content: center;
+                opacity: 0;
 
-                font-size: 18px;
-
-                transition: all 0.25s ease;
-
-                }
-
-
-                /* Hover contact */
-
-                .contact-item:hover .contact-icon {
-
-                transform: translateY(-2px);
-
-                box-shadow: 0 5px 12px rgba(18, 100, 255, 0.12);
-
-                }
-
-
-                /* =====================================================
-                CONTACT TEXT
-                ===================================================== */
-
-                .contact-value {
-
-                display: block;
-
-                margin-top: 3px;
-
-                font-size: 16px;
-
-                color: #172b4d;
-
-                }
-
-
-                /* =====================================================
-                SOCIAL MEDIA
-                ===================================================== */
-
-                .social-media-section {
-
-                margin-top: 45px;
-
-                padding-top: 25px;
-
-                border-top: 1px solid #edf0f4;
-
-                text-align: center;
-
-                }
-
-
-                /* Container */
-
-                .social-media-list {
-
-                display: flex;
-
-                justify-content: center;
-
-                align-items: center;
-
-                gap: 10px;
-
-                flex-wrap: wrap;
-
-                }
-
-
-                /* =====================================================
-                SOCIAL MEDIA BUTTON
-                ===================================================== */
-
-                .social-media-link {
-
-                width: 48px;
-
-                height: 48px;
-
-                display: flex;
-
-                align-items: center;
-
-                justify-content: center;
-
-                border: 1px solid #dee2e6;
-
-                border-radius: 12px;
-
-                background: #fff;
-
-                color: #6c757d;
-
-                text-decoration: none;
-
-                font-size: 18px;
+                transform: translateY(3px);
 
                 transition: all 0.25s ease;
+            }
 
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-
-                }
-
-
-                /* =====================================================
-                SOCIAL MEDIA HOVER
-                ===================================================== */
-
-                .social-media-link:hover {
-
-                transform: translateY(-4px);
-
-                color: #fff;
-
-                box-shadow: 0 7px 16px rgba(0, 0, 0, 0.12);
-
-                }
-
+            .contact-location:hover .location-link {
+                opacity: 1;
+                transform: translateY(0);
 
                 /* =====================================================
-                FACEBOOK
-                ===================================================== */
+                    CONTACT LINK
+                    ===================================================== */
 
-                .social-media-link.facebook:hover {
+                    .contact-link {
+                        color: inherit;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
 
-                background: #1877f2;
+                    .contact-link:hover {
+                        color: inherit;
+                        text-decoration: none;
+                    }
 
-                border-color: #1877f2;
-
-                }
-
-
-                /* =====================================================
-                LINKEDIN
-                ===================================================== */
-
-                .social-media-link.linkedin:hover {
-
-                background: #0a66c2;
-
-                border-color: #0a66c2;
-
-                }
+                    .contact-link .contact-box-content {
+                        flex: 1;
+                    }
 
 
-                /* =====================================================
-                INSTAGRAM
-                ===================================================== */
+                    /* =====================================================
+                    ACTION TEXT
+                    ===================================================== */
 
-                .social-media-link.instagram:hover {
+                    .contact-action {
+                        display: block;
 
-                background: #e4405f;
+                        margin-top: 5px;
 
-                border-color: #e4405f;
+                        color: #1264ff;
 
-                }
+                        font-size: 11px;
 
+                        font-weight: 500;
 
-                /* =====================================================
-                YOUTUBE
-                ===================================================== */
+                        opacity: 0;
 
-                .social-media-link.youtube:hover {
+                        transform: translateY(3px);
 
-                background: #ff0000;
+                        transition: all 0.25s ease;
+                    }
 
-                border-color: #ff0000;
+                    .contact-link:hover .contact-action {
+                        opacity: 1;
 
-                }
-
-
-                /* =====================================================
-                TIKTOK
-                ===================================================== */
-
-                .social-media-link.tiktok:hover {
-
-                background: #111;
-
-                border-color: #111;
-
-                }
+                        transform: translateY(0);
+                    }
+}
 
 
-                /* =====================================================
-                MOBILE
-                ===================================================== */
+/* =====================================================
+   SOCIAL MEDIA SECTION
+===================================================== */
 
-                @media (max-width: 576px) {
+.itda-social-section {
+    margin-top: 32px;
+}
 
-                .contact-card .card-body {
+.social-divider {
+    height: 1px;
 
-                    padding: 25px 18px !important;
+    background: #edf0f4;
 
-                }
+    margin-bottom: 25px;
+}
+
+.social-header {
+    text-align: center;
+
+    margin-bottom: 16px;
+}
+
+.social-header span {
+    display: block;
+
+    color: #172b4d;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+.social-header p {
+    margin: 4px 0 0;
+
+    color: #8a94a4;
+
+    font-size: 12px;
+}
 
 
-                .social-media-link {
+/* =====================================================
+   SOCIAL MEDIA BUTTON
+===================================================== */
 
-                    width: 44px;
+.social-media-list {
+    display: flex;
 
-                    height: 44px;
+    align-items: center;
+    justify-content: center;
 
-                    font-size: 17px;
+    gap: 10px;
+}
 
-                }
+.social-media-link {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e1e5eb;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #667085;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    transition: all 0.25s ease;
+}
+
+.social-media-link:hover {
+    color: #ffffff;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.12);
+}
 
 
-                .contact-title {
+/* =====================================================
+   FACEBOOK
+===================================================== */
 
-                    font-size: 21px;
+.social-media-link.facebook:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+}
 
-                }
+
+/* =====================================================
+   INSTAGRAM
+===================================================== */
+
+.social-media-link.instagram:hover {
+    background: #e4405f;
+    border-color: #e4405f;
+}
+
+
+/* =====================================================
+   YOUTUBE
+===================================================== */
+
+.social-media-link.youtube:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+}
+
+
+/* =====================================================
+   TIKTOK
+===================================================== */
+
+.social-media-link.tiktok:hover {
+    background: #111111;
+    border-color: #111111;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 991.98px) {
+
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 575.98px) {
+
+    .itda-contact-card .card-body {
+        padding: 30px 20px;
+    }
+
+    .itda-contact-header h3 {
+        font-size: 21px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-box {
+        min-height: 76px;
+    }
 
 }
 

@@ -113,6 +113,26 @@
                 </button>
                 <a href="{{ route('admin.siswa.index') }}" class="btn btn-outline-secondary px-4">Batal</a>
             </div>
+            <hr class="my-4">
+
+            <div class="section-label">
+                <i class="fa-solid fa-key"></i> Reset Password Siswa
+            </div>
+
+            <form method="POST" action="{{ route('admin.siswa.reset-password', $siswa->id) }}"
+                onsubmit="return confirm('Yakin ingin mereset password siswa ini?');">
+                @csrf
+                @method('PUT')
+
+                <div class="mb-3">
+                    <label class="form-label">Password Baru</label>
+                    <input type="text" name="new_password" class="form-control" placeholder="Masukkan password baru untuk siswa" required minlength="6">
+                    <small class="text-muted">Beritahukan password ini langsung ke siswa secara personal.</small>
+                </div>
+
+                <button type="submit" class="btn btn-outline-danger">
+                    <i class="fa-solid fa-key me-1"></i> Reset Password
+                </button>
         </form>
 
     </div>
