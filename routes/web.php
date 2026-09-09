@@ -11,9 +11,7 @@ use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Admin\HasilTesController;
 use App\Http\Controllers\Admin\PertanyaanController;
 
-Route::get('/', function () {
-    return redirect('/login');
-});
+Route::redirect('/', '/login');
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +103,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/siswa', [SiswaController::class, 'index'])->name('admin.siswa.index');
     Route::get('/admin/siswa/{siswa}/edit', [SiswaController::class, 'edit'])->name('admin.siswa.edit');
     Route::put('/admin/siswa/{siswa}', [SiswaController::class, 'update'])->name('admin.siswa.update');
+    Route::put('/admin/siswa/{siswa}/reset-password', [SiswaController::class, 'resetPassword'])
+    ->name('admin.siswa.reset-password');
     Route::delete('/admin/siswa/{siswa}', [SiswaController::class, 'destroy'])->name('admin.siswa.destroy');
     Route::get('/admin/hasil', [HasilTesController::class, 'index'])->name('admin.hasil.index');
     Route::get('/admin/hasil/{hasil}', [HasilTesController::class, 'show'])->name('admin.hasil.show');

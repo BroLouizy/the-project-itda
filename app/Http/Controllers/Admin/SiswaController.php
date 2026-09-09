@@ -72,4 +72,16 @@ class SiswaController extends Controller
         return redirect()->route('admin.siswa.index')
             ->with('success', 'Data siswa berhasil dihapus.');
     }
+    public function resetPassword(Request $request, User $siswa)
+    {
+        $request->validate([
+            'new_password' => 'required|min:6',
+        ]);
+
+        $siswa->password = Hash::make($request->new_password);
+        $siswa->save();
+
+        return redirect()->route('admin.siswa.edit', $siswa->id)
+            ->with('success', "Password untuk {$siswa->name} berhasil direset.");
+    }
 }
