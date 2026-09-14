@@ -87,6 +87,9 @@ Route::middleware(['auth', 'role:student'])->group(function () {
 
     // Hasil Tes
     Route::get('/hasil', [HasilController::class, 'index'])->name('hasil.tes');
+
+    Route::get('/hasil/download-pdf', [HasilController::class, 'downloadPdf'])
+    ->name('student.hasil.pdf');
 });
 
 /*
