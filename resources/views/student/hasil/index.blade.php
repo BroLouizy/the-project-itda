@@ -204,18 +204,18 @@
     </div>
 
 
-    {{-- Tombol PDF --}}
-        <div class="text-center mb-4">
+    {{-- Tombol Download --}}
+    <div class="text-center mb-4">
 
-            <a href="{{ route('student.hasil.pdf') }}"
-            class="btn btn-primary px-4 py-2"
-            style="border-radius: 10px;">
+        <a href="{{ route('student.hasil.pdf') }}"
+        class="btn btn-primary px-4 py-2"
+        style="border-radius: 10px;">
 
-                <i class="fa-solid fa-file-pdf me-2"></i>
-                Download Hasil PDF
+            <i class="fa-solid fa-image me-2"></i>
+            Download Hasil PNG
 
-            </a>
+        </a>
 
-        </div>
+    </div>
 
 @endsection
