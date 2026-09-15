@@ -669,7 +669,11 @@
    MAIN CONTACT CARD
 ===================================================== */
 
-.itda-contact-section {
+/* =====================================================
+   KUNJUNGI ITDA
+   ===================================================== */
+
+   .itda-contact-section {
     margin-top: 48px;
     margin-bottom: 20px;
 }
@@ -680,74 +684,46 @@
     background: #ffffff;
 }
 
-.itda-contact-card .card-body {
-    padding: 42px 48px 38px;
-}
-
 
 /* =====================================================
    HEADER
-===================================================== */
+   ===================================================== */
 
-.itda-contact-header {
+   .itda-contact-header {
+    text-align: center;
     margin-bottom: 34px;
-}
-
-.itda-contact-badge {
-    width: 52px;
-    height: 52px;
-
-    margin: 0 auto 14px;
-
-    border-radius: 14px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #eef4ff;
-    color: #1264ff;
-
-    font-size: 21px;
 }
 
 .itda-contact-header h3 {
     margin: 0;
-
     font-size: 25px;
     font-weight: 700;
-
     color: #172b4d;
-
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
 
 .itda-contact-header p {
     margin: 7px 0 0;
-
     color: #6c757d;
-
     font-size: 14px;
 }
 
 
 /* =====================================================
    CONTACT GRID
-===================================================== */
+   ===================================================== */
 
 .contact-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 14px;
 }
 
 
 /* =====================================================
    CONTACT BOX
-===================================================== */
+   ===================================================== */
 
 .contact-box {
     min-height: 82px;
@@ -756,11 +732,9 @@
     align-items: center;
 
     gap: 14px;
-
     padding: 16px 18px;
 
     border: 1px solid #edf0f5;
-
     border-radius: 13px;
 
     background: #fafbfd;
@@ -770,23 +744,19 @@
 
 .contact-box:hover {
     background: #ffffff;
-
     border-color: #dce7ff;
-
     transform: translateY(-2px);
-
     box-shadow: 0 6px 18px rgba(23, 59, 112, 0.07);
 }
 
 
 /* =====================================================
    CONTACT ICON
-===================================================== */
+   ===================================================== */
 
 .contact-box-icon {
     width: 42px;
     height: 42px;
-
     min-width: 42px;
 
     border-radius: 11px;
@@ -796,7 +766,6 @@
     justify-content: center;
 
     background: #eef4ff;
-
     color: #1264ff;
 
     font-size: 16px;
@@ -805,21 +774,20 @@
 
 /* =====================================================
    CONTACT TEXT
-===================================================== */
+   ===================================================== */
 
 .contact-box-content {
     min-width: 0;
+    flex: 1;
 }
 
 .contact-label {
     display: block;
-
     margin-bottom: 4px;
 
     color: #7a8494;
 
     font-size: 12px;
-
     font-weight: 500;
 }
 
@@ -829,136 +797,124 @@
     color: #172b4d;
 
     font-size: 14px;
-
     font-weight: 600;
 
     word-break: break-word;
 }
 
-            /* =====================================================
-            LOKASI GOOGLE MAPS
-            ===================================================== */
 
-            .contact-location {
-                color: inherit;
-                text-decoration: none;
-                cursor: pointer;
-            }
+/* =====================================================
+   CONTACT LINK
+   ===================================================== */
 
-            .contact-location:hover {
-                color: inherit;
-                text-decoration: none;
-            }
+.contact-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-            .contact-location .contact-box-content {
-                flex: 1;
-            }
+.contact-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
 
-            .location-link {
-                display: block;
-
-                margin-top: 5px;
-
-                color: #1264ff;
-
-                font-size: 11px;
-
-                font-weight: 500;
-
-                opacity: 0;
-
-                transform: translateY(3px);
-
-                transition: all 0.25s ease;
-            }
-
-            .contact-location:hover .location-link {
-                opacity: 1;
-                transform: translateY(0);
-
-                /* =====================================================
-                    CONTACT LINK
-                    ===================================================== */
-
-                    .contact-link {
-                        color: inherit;
-                        text-decoration: none;
-                        cursor: pointer;
-                    }
-
-                    .contact-link:hover {
-                        color: inherit;
-                        text-decoration: none;
-                    }
-
-                    .contact-link .contact-box-content {
-                        flex: 1;
-                    }
+.contact-link .contact-box-content {
+    flex: 1;
+}
 
 
-                    /* =====================================================
-                    ACTION TEXT
-                    ===================================================== */
+/* =====================================================
+   LOCATION GOOGLE MAPS
+   ===================================================== */
 
-                    .contact-action {
-                        display: block;
+.contact-location {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-                        margin-top: 5px;
+.contact-location:hover {
+    color: inherit;
+    text-decoration: none;
+}
 
-                        color: #1264ff;
+.location-link {
+    display: block;
 
-                        font-size: 11px;
+    margin-top: 5px;
 
-                        font-weight: 500;
+    color: #1264ff;
 
-                        opacity: 0;
+    font-size: 11px;
+    font-weight: 500;
 
-                        transform: translateY(3px);
+    opacity: 0;
+    transform: translateY(3px);
 
-                        transition: all 0.25s ease;
-                    }
+    transition: all 0.25s ease;
+}
 
-                    .contact-link:hover .contact-action {
-                        opacity: 1;
+.contact-location:hover .location-link {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-                        transform: translateY(0);
-                    }
+
+/* =====================================================
+   ACTION TEXT
+   ===================================================== */
+
+.contact-action {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #1264ff;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    opacity: 0;
+    transform: translateY(3px);
+
+    transition: all 0.25s ease;
+}
+
+.contact-link:hover .contact-action {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
 /* =====================================================
    SOCIAL MEDIA SECTION
-===================================================== */
+   ===================================================== */
 
-.itda-social-section {
+.social-media-section {
     margin-top: 32px;
 }
 
 .social-divider {
     height: 1px;
-
     background: #edf0f4;
-
     margin-bottom: 25px;
 }
 
-.social-header {
+.social-media-header {
     text-align: center;
-
     margin-bottom: 16px;
 }
 
-.social-header span {
+.social-media-header span {
     display: block;
 
     color: #172b4d;
 
     font-size: 15px;
-
     font-weight: 700;
 }
 
-.social-header p {
+.social-media-header p {
     margin: 4px 0 0;
 
     color: #8a94a4;
@@ -969,7 +925,7 @@
 
 /* =====================================================
    SOCIAL MEDIA BUTTON
-===================================================== */
+   ===================================================== */
 
 .social-media-list {
     display: flex;
@@ -980,13 +936,18 @@
     gap: 10px;
 }
 
-.social-media-link {
-    width: 44px;
+.social-item {
+    width: auto;
+    min-width: 44px;
     height: 44px;
 
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 14px;
 
     border: 1px solid #e1e5eb;
 
@@ -998,13 +959,14 @@
 
     text-decoration: none;
 
-    font-size: 17px;
+    font-size: 13px;
 
     transition: all 0.25s ease;
 }
 
-.social-media-link:hover {
+.social-item:hover {
     color: #ffffff;
+    text-decoration: none;
 
     transform: translateY(-4px);
 
@@ -1014,9 +976,9 @@
 
 /* =====================================================
    FACEBOOK
-===================================================== */
+   ===================================================== */
 
-.social-media-link.facebook:hover {
+.social-item.facebook:hover {
     background: #1877f2;
     border-color: #1877f2;
 }
@@ -1024,9 +986,9 @@
 
 /* =====================================================
    INSTAGRAM
-===================================================== */
+   ===================================================== */
 
-.social-media-link.instagram:hover {
+.social-item.instagram:hover {
     background: #e4405f;
     border-color: #e4405f;
 }
@@ -1034,9 +996,9 @@
 
 /* =====================================================
    YOUTUBE
-===================================================== */
+   ===================================================== */
 
-.social-media-link.youtube:hover {
+.social-item.youtube:hover {
     background: #ff0000;
     border-color: #ff0000;
 }
@@ -1044,9 +1006,9 @@
 
 /* =====================================================
    TIKTOK
-===================================================== */
+   ===================================================== */
 
-.social-media-link.tiktok:hover {
+.social-item.tiktok:hover {
     background: #111111;
     border-color: #111111;
 }
@@ -1054,7 +1016,7 @@
 
 /* =====================================================
    TABLET
-===================================================== */
+   ===================================================== */
 
 @media (max-width: 991.98px) {
 
@@ -1067,11 +1029,11 @@
 
 /* =====================================================
    MOBILE
-===================================================== */
+   ===================================================== */
 
 @media (max-width: 575.98px) {
 
-    .itda-contact-card .card-body {
+    .itda-contact-card {
         padding: 30px 20px;
     }
 
@@ -1085,6 +1047,10 @@
 
     .contact-box {
         min-height: 76px;
+    }
+
+    .social-media-list {
+        flex-wrap: wrap;
     }
 
 }
