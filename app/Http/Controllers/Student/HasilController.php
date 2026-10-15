@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class HasilController extends Controller
 {
@@ -26,9 +27,11 @@ class HasilController extends Controller
         return view('student.hasil.index', [
             'hasil' => $hasil,
             'detailSkor' => $detailSkor,
+            'user' => $user,
         ]);
     }
 
+    
     public function downloadPdf()
     {
         $user = Auth::user();
@@ -45,10 +48,12 @@ class HasilController extends Controller
             ->sortByDesc('persentase')
             ->values();
 
-        return view('student.hasil.pdf', [
+        $pdf = Pdf::loadView('student.hasil.pdf', [
             'hasil' => $hasil,
             'detailSkor' => $detailSkor,
             'user' => $user,
-        ]);
+        ])->setPaper('a4', 'landscape');
+
+        return $pdf->download('Sertifikat-SIMPRODI.pdf');
     }
 }
