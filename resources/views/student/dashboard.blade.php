@@ -13,7 +13,7 @@
     {{-- HEADER SAPAAN --}}
     <div class="mb-4">
         <span class="text-muted small">
-            <i class="fa-solid fa-house me-1"></i> HOME
+            <i class="fa-solid fa-house me-1"></i> Beranda
         </span>
 
         <h2 class="fw-bold mt-2 mb-1">
@@ -467,7 +467,7 @@
         <div class="contact-grid">
 
             <!-- Lokasi -->
-            <a href="LINK_GOOGLE_MAPS"
+            <a href="https://maps.app.goo.gl/rwLmS4dLwfU2iN3W6"
                target="_blank"
                rel="noopener noreferrer"
                class="contact-box contact-link contact-location">
@@ -605,7 +605,7 @@
             <div class="social-media-list">
 
                 <!-- Facebook -->
-                <a href="MASUKKAN_LINK_FACEBOOK_DI_SINI"
+                <a href="https://www.facebook.com/ITDA.YK"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="social-item facebook">
@@ -617,7 +617,7 @@
 
 
                 <!-- Instagram -->
-                <a href="MASUKKAN_LINK_INSTAGRAM_DI_SINI"
+                <a href="https://www.instagram.com/itda.yogyakarta/"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="social-item instagram">
@@ -629,7 +629,7 @@
 
 
                 <!-- YouTube -->
-                <a href="MASUKKAN_LINK_YOUTUBE_DI_SINI"
+                <a href="https://www.youtube.com/@itda.yogyakarta"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="social-item youtube">
@@ -641,7 +641,7 @@
 
 
                 <!-- TikTok -->
-                <a href="MASUKKAN_LINK_TIKTOK_DI_SINI"
+                <a href="https://www.tiktok.com/@itda.yogyakarta"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="social-item tiktok">
@@ -665,395 +665,378 @@
 
 <style>
 
-/* =====================================================
-   MAIN CONTACT CARD
-===================================================== */
 
-/* =====================================================
-   KUNJUNGI ITDA
-   ===================================================== */
+/* ==================================================
+   DASHBOARD - AEROSPACE EXECUTIVE
+   Tampilan saja, tanpa mengubah logika Blade
+   ================================================== */
 
-   .itda-contact-section {
-    margin-top: 48px;
-    margin-bottom: 20px;
+/* Sapaan siswa */
+
+.main-content > .container-fluid > .mb-4:first-child {
+    position: relative;
+    padding: 8px 0 22px 18px;
+    border-left: 3px solid #d6b46a;
+}
+
+.main-content > .container-fluid > .mb-4:first-child > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #246bce !important;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.main-content > .container-fluid > .mb-4:first-child h2 {
+    margin-top: 12px !important;
+    color: #102a4c;
+    font-size: clamp(23px, 2.2vw, 32px);
+    line-height: 1.3;
+    letter-spacing: -.7px;
+}
+
+.main-content > .container-fluid > .mb-4:first-child p {
+    max-width: 680px;
+    color: #748196 !important;
+    font-size: 14px;
+}
+
+/* Kartu hasil tes dan kartu ajakan tes */
+
+.main-content .container-fluid > .card:first-of-type {
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid #d6b46a !important;
+}
+
+.main-content .container-fluid > .card:first-of-type::after {
+    content: "";
+    position: absolute;
+    top: -65px;
+    right: -65px;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(214, 180, 106, .22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.main-content .container-fluid > .card:first-of-type .card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.main-content .container-fluid > .card h2.text-primary {
+    color: #246bce !important;
+    letter-spacing: -.7px;
+}
+
+.main-content .container-fluid > .card .text-teal {
+    color: #b28b35 !important;
+}
+
+.main-content .container-fluid > .card .bg-teal {
+    background-color: #f7f0df !important;
+}
+
+/* Ilustrasi hasil tes */
+
+.main-content .container-fluid > .card .fa-award {
+    color: #b28b35 !important;
+}
+
+.main-content .container-fluid > .card .rounded-circle,
+.main-content .container-fluid > .card .rounded-4 {
+    border: 1px solid rgba(214, 180, 106, .24);
+}
+
+/* Judul bagian */
+
+.main-content .container-fluid > .text-center {
+    position: relative;
+}
+
+.main-content .container-fluid > .text-center > span {
+    display: inline-block;
+    color: #246bce !important;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.main-content .container-fluid > .text-center h3 {
+    margin-top: 10px !important;
+    color: #102a4c;
+    font-size: clamp(21px, 2vw, 27px);
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.main-content .container-fluid > .text-center p {
+    color: #748196 !important;
+    font-size: 14px;
+}
+
+/* Kartu langkah dan manfaat */
+
+.main-content .container-fluid .row.g-4 > div > .card {
+    height: 100%;
+    border-radius: 16px !important;
+    background: #fff;
+}
+
+.main-content .container-fluid .row.g-4 > div > .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(214, 180, 106, .65) !important;
+    box-shadow: 0 14px 30px rgba(16, 42, 76, .09) !important;
+}
+
+.main-content .container-fluid .row.g-4 > div > .card h5 {
+    color: #102a4c;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.main-content .container-fluid .row.g-4 > div > .card p {
+    color: #748196 !important;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.main-content .container-fluid .row.g-4 > div > .card .rounded-circle,
+.main-content .container-fluid .row.g-4 > div > .card .rounded-3 {
+    border: 1px solid rgba(36, 107, 206, .08);
+}
+
+/* ==================================================
+   PANEL KONTAK ITDA
+   ================================================== */
+
+.itda-contact-section {
+    margin-top: 36px;
+    padding: 0;
 }
 
 .itda-contact-card {
-    border-radius: 20px;
+    padding: 28px;
     overflow: hidden;
-    background: #ffffff;
+    background: #fff;
+    border: 1px solid #e3e9f1;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(16, 42, 76, .055);
 }
 
-
-/* =====================================================
-   HEADER
-   ===================================================== */
-
-   .itda-contact-header {
+.itda-contact-header {
+    margin-bottom: 24px;
     text-align: center;
-    margin-bottom: 34px;
+}
+
+.itda-contact-header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 10px;
+    color: #b28b35;
+    background: #f7f0df;
+    border: 1px solid rgba(214, 180, 106, .3);
+    border-radius: 13px;
 }
 
 .itda-contact-header h3 {
-    margin: 0;
-    font-size: 25px;
-    font-weight: 700;
-    color: #172b4d;
+    color: #102a4c !important;
+    font-size: 22px;
+    font-weight: 850;
+    letter-spacing: .5px;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
 }
 
 .itda-contact-header p {
-    margin: 7px 0 0;
-    color: #6c757d;
-    font-size: 14px;
+    color: #748196 !important;
+    font-size: 12px;
+    line-height: 1.7;
 }
-
-
-/* =====================================================
-   CONTACT GRID
-   ===================================================== */
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
 }
 
-
-/* =====================================================
-   CONTACT BOX
-   ===================================================== */
-
 .contact-box {
-    min-height: 82px;
-
     display: flex;
-    align-items: center;
-
-    gap: 14px;
-    padding: 16px 18px;
-
-    border: 1px solid #edf0f5;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+    padding: 17px;
+    color: #102a4c;
+    background: #f8fafd;
+    border: 1px solid #e6ecf4;
     border-radius: 13px;
-
-    background: #fafbfd;
-
-    transition: all 0.25s ease;
+    text-decoration: none;
+    transition: .2s ease;
 }
 
 .contact-box:hover {
-    background: #ffffff;
-    border-color: #dce7ff;
+    color: #102a4c;
+    background: #fff;
+    border-color: #d6b46a;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(23, 59, 112, 0.07);
 }
 
-
-/* =====================================================
-   CONTACT ICON
-   ===================================================== */
-
 .contact-box-icon {
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-
-    border-radius: 11px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: #eef4ff;
-    color: #1264ff;
-
-    font-size: 16px;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    color: #246bce;
+    background: #eaf2ff;
+    border-radius: 11px;
 }
 
-
-/* =====================================================
-   CONTACT TEXT
-   ===================================================== */
-
 .contact-box-content {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    flex: 1;
+    gap: 5px;
 }
 
 .contact-label {
-    display: block;
-    margin-bottom: 4px;
-
-    color: #7a8494;
-
-    font-size: 12px;
-    font-weight: 500;
+    color: #748196;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .7px;
+    text-transform: uppercase;
 }
 
 .contact-box-content strong {
-    display: block;
-
-    color: #172b4d;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    word-break: break-word;
+    overflow-wrap: anywhere;
+    color: #102a4c;
+    font-size: 12px;
+    line-height: 1.6;
 }
 
-
-/* =====================================================
-   CONTACT LINK
-   ===================================================== */
-
-.contact-link {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
+.contact-box-content small {
+    color: #246bce;
+    font-size: 10px;
 }
-
-.contact-link:hover {
-    color: inherit;
-    text-decoration: none;
-}
-
-.contact-link .contact-box-content {
-    flex: 1;
-}
-
-
-/* =====================================================
-   LOCATION GOOGLE MAPS
-   ===================================================== */
-
-.contact-location {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.contact-location:hover {
-    color: inherit;
-    text-decoration: none;
-}
-
-.location-link {
-    display: block;
-
-    margin-top: 5px;
-
-    color: #1264ff;
-
-    font-size: 11px;
-    font-weight: 500;
-
-    opacity: 0;
-    transform: translateY(3px);
-
-    transition: all 0.25s ease;
-}
-
-.contact-location:hover .location-link {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* =====================================================
-   ACTION TEXT
-   ===================================================== */
-
-.contact-action {
-    display: block;
-
-    margin-top: 5px;
-
-    color: #1264ff;
-
-    font-size: 11px;
-    font-weight: 500;
-
-    opacity: 0;
-    transform: translateY(3px);
-
-    transition: all 0.25s ease;
-}
-
-.contact-link:hover .contact-action {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* =====================================================
-   SOCIAL MEDIA SECTION
-   ===================================================== */
 
 .social-media-section {
-    margin-top: 32px;
+    margin-top: 25px;
 }
 
 .social-divider {
     height: 1px;
-    background: #edf0f4;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
+    background: #e3e9f1;
 }
 
 .social-media-header {
+    margin-bottom: 15px;
     text-align: center;
-    margin-bottom: 16px;
 }
 
 .social-media-header span {
-    display: block;
-
-    color: #172b4d;
-
-    font-size: 15px;
-    font-weight: 700;
+    color: #102a4c;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .social-media-header p {
-    margin: 4px 0 0;
-
-    color: #8a94a4;
-
+    margin-top: 5px;
+    color: #748196;
     font-size: 12px;
 }
 
-
-/* =====================================================
-   SOCIAL MEDIA BUTTON
-   ===================================================== */
-
 .social-media-list {
     display: flex;
-
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-
     gap: 10px;
 }
 
 .social-item {
-    width: auto;
-    min-width: 44px;
-    height: 44px;
-
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-
     gap: 8px;
-
-    padding: 0 14px;
-
-    border: 1px solid #e1e5eb;
-
-    border-radius: 11px;
-
-    background: #ffffff;
-
-    color: #667085;
-
+    padding: 10px 14px;
+    color: #102a4c;
+    background: #f8fafd;
+    border: 1px solid #e3e9f1;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 650;
     text-decoration: none;
-
-    font-size: 13px;
-
-    transition: all 0.25s ease;
+    transition: .2s ease;
 }
 
 .social-item:hover {
-    color: #ffffff;
-    text-decoration: none;
-
-    transform: translateY(-4px);
-
-    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.12);
+    color: #246bce;
+    background: #eaf2ff;
+    border-color: #c9dcfa;
+    transform: translateY(-2px);
 }
 
+/* RESPONSIVE DASHBOARD */
 
-/* =====================================================
-   FACEBOOK
-   ===================================================== */
-
-.social-item.facebook:hover {
-    background: #1877f2;
-    border-color: #1877f2;
-}
-
-
-/* =====================================================
-   INSTAGRAM
-   ===================================================== */
-
-.social-item.instagram:hover {
-    background: #e4405f;
-    border-color: #e4405f;
-}
-
-
-/* =====================================================
-   YOUTUBE
-   ===================================================== */
-
-.social-item.youtube:hover {
-    background: #ff0000;
-    border-color: #ff0000;
-}
-
-
-/* =====================================================
-   TIKTOK
-   ===================================================== */
-
-.social-item.tiktok:hover {
-    background: #111111;
-    border-color: #111111;
-}
-
-
-/* =====================================================
-   TABLET
-   ===================================================== */
-
-@media (max-width: 991.98px) {
-
-    .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+    .main-content > .container-fluid > .mb-4:first-child {
+        padding-left: 12px;
     }
 
-}
+    .main-content .container-fluid > .card:first-of-type .row {
+        --bs-gutter-y: 20px;
+    }
 
-
-/* =====================================================
-   MOBILE
-   ===================================================== */
-
-@media (max-width: 575.98px) {
+    .main-content .container-fluid > .card:first-of-type .rounded-circle,
+    .main-content .container-fluid > .card:first-of-type .rounded-4 {
+        max-width: 130px;
+        max-height: 130px;
+    }
 
     .itda-contact-card {
-        padding: 30px 20px;
+        padding: 18px 12px;
     }
 
     .itda-contact-header h3 {
-        font-size: 21px;
+        font-size: 18px;
     }
 
     .contact-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .contact-box {
-        min-height: 76px;
+        padding: 13px;
     }
 
     .social-media-list {
-        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main-content .card,
+    .contact-box,
+    .social-item,
+    .main-content .btn {
+        transition: none !important;
     }
 
+    .main-content .card:hover,
+    .contact-box:hover,
+    .social-item:hover,
+    .main-content .btn:hover {
+        transform: none !important;
+    }
 }
+
 
 </style>
 
