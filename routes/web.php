@@ -89,7 +89,7 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     Route::get('/hasil', [HasilController::class, 'index'])->name('hasil.tes');
 
     Route::get('/hasil/download-pdf', [HasilController::class, 'downloadPdf'])
-    ->name('hasil.download');
+        ->name('hasil.download');
 });
 
 /*
@@ -107,10 +107,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/siswa/{siswa}/edit', [SiswaController::class, 'edit'])->name('admin.siswa.edit');
     Route::put('/admin/siswa/{siswa}', [SiswaController::class, 'update'])->name('admin.siswa.update');
     Route::put('/admin/siswa/{siswa}/reset-password', [SiswaController::class, 'resetPassword'])
-    ->name('admin.siswa.reset-password');
+        ->name('admin.siswa.reset-password');
     Route::delete('/admin/siswa/{siswa}', [SiswaController::class, 'destroy'])->name('admin.siswa.destroy');
+
+    // Download sertifikat siswa (admin)
+    Route::get('/admin/siswa/{siswa}/sertifikat', [SiswaController::class, 'downloadSertifikat'])
+        ->name('admin.siswa.sertifikat');
+
+    // Hasil Tes
     Route::get('/admin/hasil', [HasilTesController::class, 'index'])->name('admin.hasil.index');
     Route::get('/admin/hasil/{hasil}', [HasilTesController::class, 'show'])->name('admin.hasil.show');
+
+    // Pertanyaan
     Route::get('/admin/pertanyaan', [PertanyaanController::class, 'index'])->name('admin.pertanyaan.index');
     Route::get('/admin/pertanyaan/{pertanyaan}/edit', [PertanyaanController::class, 'edit'])->name('admin.pertanyaan.edit');
     Route::put('/admin/pertanyaan/{pertanyaan}', [PertanyaanController::class, 'update'])->name('admin.pertanyaan.update');
