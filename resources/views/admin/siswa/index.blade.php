@@ -118,11 +118,13 @@
 
                                 {{-- Download sertifikat (hanya aktif kalau siswa sudah tes) --}}
                                 @if ($s->tes_results_count > 0)
-                                    <a href="{{ route('admin.siswa.sertifikat', $s->id) }}"
-                                       class="btn btn-sm btn-outline-success"
-                                       title="Download Sertifikat">
+                                    <button type="button"
+                                            class="btn btn-sm btn-outline-success btn-download-sertifikat"
+                                            data-url="{{ route('admin.siswa.sertifikat', $s->id) }}"
+                                            data-name="{{ $s->name }}"
+                                            title="Download Sertifikat">
                                         <i class="fa-solid fa-download"></i>
-                                    </a>
+                                    </button>
                                 @else
                                     <button type="button"
                                             class="btn btn-sm btn-outline-secondary"
@@ -236,6 +238,96 @@
     .table > :not(caption) > * > * {
         border-bottom-color: #f0f2f5;
     }
+
+    .toast-notification.toast-error .toast-icon {
+        background: #dc3545;
+        color: #fff;
+    }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Notifikasi kecil (memakai gaya toast yang sama dengan notifikasi "Berhasil!")
+    function showToast(type, title, message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification toast-' + type;
+        toast.innerHTML = `
+            <div class="toast-icon">
+                <i class="fa-solid ${type === 'success' ? 'fa-check' : 'fa-xmark'}"></i>
+            </div>
+            <div class="toast-content">
+                <strong></strong>
+                <span></span>
+            </div>
+            <button type="button" class="toast-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        `;
+        toast.querySelector('strong').textContent = title;
+        toast.querySelector('span').textContent = message;
+        toast.querySelector('.toast-close').addEventListener('click', function () {
+            toast.remove();
+        });
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.remove(); }, 4000);
+    }
+
+    document.querySelectorAll('.btn-download-sertifikat').forEach(function (btn) {
+
+        btn.addEventListener('click', async function () {
+
+            const url = btn.dataset.url;
+            const nama = btn.dataset.name;
+            const originalHtml = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+            try {
+                const response = await fetch(url, {
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                    credentials: 'same-origin'
+                });
+
+                const contentType = response.headers.get('Content-Type') || '';
+
+                // Kalau bukan PDF (misalnya diarahkan balik karena siswa belum tes / error)
+                if (!response.ok || !contentType.includes('pdf')) {
+                    throw new Error('Bukan PDF');
+                }
+
+                // Ambil nama file dari server, kalau tidak ada pakai nama default
+                let filename = 'Sertifikat-SIMPRODI.pdf';
+                const disposition = response.headers.get('Content-Disposition') || '';
+                const match = disposition.match(/filename="?([^";]+)"?/i);
+                if (match) {
+                    filename = match[1];
+                }
+
+                const blob = await response.blob();
+                const blobUrl = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = blobUrl;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                URL.revokeObjectURL(blobUrl);
+
+                showToast('success', 'Berhasil!', 'Sertifikat ' + nama + ' berhasil diunduh.');
+
+            } catch (error) {
+                console.error('Gagal mengunduh sertifikat:', error);
+                showToast('error', 'Gagal!', 'Sertifikat ' + nama + ' tidak bisa diunduh. Coba lagi.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalHtml;
+            }
+        });
+    });
+});
+</script>
 
 @endsection
