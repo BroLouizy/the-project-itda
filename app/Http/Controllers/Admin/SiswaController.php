@@ -4,13 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class SiswaController extends Controller
 {
     public function index(Request $request)
     {
-        $query = User::where('role', 'student');
+        // withCount supaya tombol sertifikat tahu siswa mana yang sudah tes
+        $query = User::where('role', 'student')->withCount('tesResults');
 
         if ($request->filled('search')) {
             $search = $request->search;
@@ -72,6 +76,7 @@ class SiswaController extends Controller
         return redirect()->route('admin.siswa.index')
             ->with('success', 'Data siswa berhasil dihapus.');
     }
+
     public function resetPassword(Request $request, User $siswa)
     {
         $request->validate([
@@ -83,5 +88,37 @@ class SiswaController extends Controller
 
         return redirect()->route('admin.siswa.edit', $siswa->id)
             ->with('success', "Password untuk {$siswa->name} berhasil direset.");
+    }
+
+    /**
+     * Download sertifikat hasil tes milik siswa (versi admin).
+     * Memakai template yang sama dengan sertifikat yang diunduh siswa.
+     */
+    public function downloadSertifikat(User $siswa)
+    {
+        if ($siswa->role !== 'student') {
+            abort(404);
+        }
+
+        $hasil = $siswa->tesResults()
+            ->latest('tanggal_tes')
+            ->first();
+
+        if (!$hasil) {
+            return redirect()->route('admin.siswa.index')
+                ->with('error', "{$siswa->name} belum menyelesaikan tes.");
+        }
+
+        $detailSkor = collect($hasil->detail_skor)
+            ->sortByDesc('persentase')
+            ->values();
+
+        $pdf = Pdf::loadView('student.hasil.pdf', [
+            'hasil' => $hasil,
+            'detailSkor' => $detailSkor,
+            'user' => $siswa,
+        ])->setPaper('a4', 'landscape');
+
+        return $pdf->download('Sertifikat-SIMPRODI-' . Str::slug($siswa->name) . '.pdf');
     }
 }

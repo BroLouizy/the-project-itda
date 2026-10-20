@@ -213,21 +213,13 @@
                         border-radius:22px;background:#ffffff;"></div>
         </div>
 
-        {{-- LOGO TENGAH ATAS --}}
-        <div style="position:absolute;top:26px;left:0;right:0;text-align:center;">
-            <img src="{{ asset('images/logo-itda.png') }}"
-                 alt="Logo"
-                 style="width:62px;height:62px;object-fit:contain;">
-        </div>
-
         {{-- BRAND KIRI ATAS --}}
         <div style="position:absolute;top:60px;left:68px;font-size:19px;font-weight:800;
                     color:#263854;letter-spacing:.8px;line-height:36px;">
-            <span style="display:inline-block;position:relative;width:36px;height:36px;
-                         margin-right:10px;vertical-align:middle;border-radius:11px;background:#263d61;">
-                <span style="position:absolute;left:9px;top:9px;width:14px;height:14px;
-                             border:2px solid #ffffff;border-radius:50%;"></span>
-            </span>SIMPRODI
+            <img src="{{ asset('images/admin-avatar.png') }}"
+                 alt="Logo ITDA"
+                 style="height:36px;width:auto;max-width:60px;margin-right:10px;
+                        vertical-align:middle;object-fit:contain;">SIMPRODI
         </div>
 
         {{-- TANGGAL KANAN ATAS --}}
@@ -243,12 +235,12 @@
                 SIMPRODI
             </div>
 
-            <div style="margin-top:8px;font-size:17px;color:#374151;">
-                Selamat! Kamu telah menyelesaikan seluruh rangkaian tes
+            <div style="margin-top:8px;font-size:17px;color:#111827;">
+                Berdasarkan hasil tes identifikasi minat &amp; potensi program studi
             </div>
 
-            <div style="margin-top:22px;font-size:14px;letter-spacing:2px;color:#4b5563;">
-                DIBERIKAN KEPADA
+            <div style="margin-top:22px;font-size:17px;color:#111827;">
+                Anda telah menyelesaikan seluruh rangkaian tes, Selamat kepada
             </div>
 
             <div style="margin-top:5px;font-family:Georgia,'Times New Roman',serif;font-size:42px;

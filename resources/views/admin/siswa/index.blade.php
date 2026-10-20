@@ -25,6 +25,13 @@
     </div>
 @endif
 
+@if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+@endif
+
 {{-- HEADER HALAMAN --}}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
@@ -81,20 +88,20 @@
                 <tbody>
                     @foreach ($siswa as $s)
                         <tr>
-                        <td>
-                            <div class="d-flex align-items-center gap-2">
-                                <div class="student-avatar">
-                                    @if ($s->profile_photo)
-                                        <img src="{{ asset('storage/' . $s->profile_photo) }}"
-                                            alt="{{ $s->name }}"
-                                            style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                                    @else
-                                        {{ strtoupper(substr($s->name, 0, 1)) }}
-                                    @endif
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="student-avatar">
+                                        @if ($s->profile_photo)
+                                            <img src="{{ asset('storage/' . $s->profile_photo) }}"
+                                                 alt="{{ $s->name }}"
+                                                 style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                        @else
+                                            {{ strtoupper(substr($s->name, 0, 1)) }}
+                                        @endif
+                                    </div>
+                                    <span class="fw-semibold">{{ $s->name }}</span>
                                 </div>
-                                <span class="fw-semibold">{{ $s->name }}</span>
-                            </div>
-                        </td>
+                            </td>
                             <td>
                                 <div style="font-size: 13.5px;">{{ $s->email }}</div>
                                 <div class="text-muted" style="font-size: 12.5px;">{{ $s->phone }}</div>
@@ -108,6 +115,23 @@
                             </td>
                             <td style="font-size: 13.5px;">{{ $s->province }}</td>
                             <td class="text-end">
+
+                                {{-- Download sertifikat (hanya aktif kalau siswa sudah tes) --}}
+                                @if ($s->tes_results_count > 0)
+                                    <a href="{{ route('admin.siswa.sertifikat', $s->id) }}"
+                                       class="btn btn-sm btn-outline-success"
+                                       title="Download Sertifikat">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                @else
+                                    <button type="button"
+                                            class="btn btn-sm btn-outline-secondary"
+                                            title="Belum mengerjakan tes"
+                                            disabled>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+                                @endif
+
                                 <a href="{{ route('admin.siswa.edit', $s->id) }}" class="btn btn-sm btn-outline-primary">
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
