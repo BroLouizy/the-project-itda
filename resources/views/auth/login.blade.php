@@ -36,8 +36,10 @@
         }
 
         /* ===== PANEL KIRI - BRANDING ===== */
+
         .brand-panel {
             flex: 1;
+            border-radius: 26px;
             background: linear-gradient(160deg, #173b70 0%, #2c5cf5 100%);
             color: #fff;
             padding: 50px 45px;
@@ -47,6 +49,7 @@
             position: relative;
             overflow: hidden;
         }
+
 
         .brand-panel::before {
             content: '';
@@ -84,8 +87,14 @@
             z-index: 1;
         }
 
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .brand-panel h1 {
-            font-size: 32px;
+            font-size: 44px;
             font-weight: 800;
             letter-spacing: 1px;
             margin-bottom: 8px;
@@ -323,13 +332,11 @@
 
 <body>
 
-<div class="auth-wrapper">
-
-    {{-- PANEL KIRI - BRANDING --}}
-    <div class="brand-panel">
-        <div class="brand-logo">
-            <i class="fa-solid fa-compass"></i>
-        </div>
+<div class="brand-panel">
+    <div class="brand-logo">
+        <img src="{{ asset('images/logo-itda.png') }}"
+             alt="Logo ITDA">
+    </div>
 
         <h1>SIMPRODI</h1>
         <h2>Sistem Identifikasi Minat & Potensi Program Studi</h2>

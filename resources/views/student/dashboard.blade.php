@@ -463,133 +463,90 @@
             </div>
         </div>
 
+        
         <!-- Contact Grid -->
         <div class="contact-grid">
 
-            <!-- Lokasi -->
-            <a href="https://maps.app.goo.gl/rwLmS4dLwfU2iN3W6"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="contact-box contact-link contact-location">
+        <!-- Lokasi -->
+        <a href="https://maps.app.goo.gl/rwLmS4dLwfU2iN3W6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-box contact-link contact-location">
 
-                <div class="contact-box-icon">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
+            <div class="contact-box-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
 
-                <div class="contact-box-content">
-                    <span class="contact-label">Lokasi</span>
+            <div class="contact-box-content">
+                <span class="contact-label">Lokasi</span>
+                <strong>Institut Teknologi Dirgantara Adisutjipto</strong>
+                <small class="location-link">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    Lihat di Google Maps
+                </small>
+            </div>
+        </a>
 
-                    <strong>
-                        Institut Teknologi Dirgantara Adisutjipto
-                    </strong>
+        <!-- Email PMB -->
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pmb@itda.ac.id"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-box contact-link">
 
-                    <small class="location-link">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        Lihat di Google Maps
-                    </small>
-                </div>
+            <div class="contact-box-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
 
-            </a>
+            <div class="contact-box-content">
+                <span class="contact-label">Email PMB</span>
+                <strong>pmb@itda.ac.id</strong>
+                <small class="contact-action">
+                    <i class="fa-solid fa-envelope"></i>
+                    Buka Gmail
+                </small>
+            </div>
+        </a>
 
+        <!-- Email Admisi -->
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=admisi@itda.ac.id"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-box contact-link">
 
-            <!-- Email -->
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@itda.ac.id"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-box contact-link">
+            <div class="contact-box-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
 
-                    <div class="contact-box-icon">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
+            <div class="contact-box-content">
+                <span class="contact-label">Email Admisi</span>
+                <strong>admisi@itda.ac.id</strong>
+                <small class="contact-action">
+                    <i class="fa-solid fa-envelope"></i>
+                    Buka Gmail
+                </small>
+            </div>
+        </a>
 
-                    <div class="contact-box-content">
-                        <span class="contact-label">Email</span>
+        <!-- Telepon -->
+        <a href="tel:085123876003"
+        class="contact-box contact-link">
 
-                        <strong>
-                            info@itda.ac.id
-                        </strong>
+            <div class="contact-box-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+            </div>
 
-                        <small class="contact-action">
-                            <i class="fa-solid fa-envelope"></i>
-                            Buka Gmail
-                        </small>
-                    </div>
-
-                </a>
-
-
-            <!-- Hunting -->
-            <a href="tel:+62274451262"
-               class="contact-box contact-link">
-
-                <div class="contact-box-icon">
+            <div class="contact-box-content">
+                <span class="contact-label">Telepon</span>
+                <strong>085123876003</strong>
+                <small class="contact-action">
                     <i class="fa-solid fa-phone"></i>
-                </div>
-
-                <div class="contact-box-content">
-                    <span class="contact-label">Hunting</span>
-
-                    <strong>
-                        +62 274 451262
-                    </strong>
-
-                    <small class="contact-action">
-                        <i class="fa-solid fa-phone"></i>
-                        Hubungi sekarang
-                    </small>
-                </div>
-
-            </a>
-
-
-            <!-- Telepon -->
-            <a href="tel:+62274451263"
-               class="contact-box contact-link">
-
-                <div class="contact-box-icon">
-                    <i class="fa-solid fa-phone-volume"></i>
-                </div>
-
-                <div class="contact-box-content">
-                    <span class="contact-label">Telepon</span>
-
-                    <strong>
-                        +62 274 451263
-                    </strong>
-
-                    <small class="contact-action">
-                        <i class="fa-solid fa-phone"></i>
-                        Hubungi sekarang
-                    </small>
-                </div>
-
-            </a>
-
-
-            <!-- Fax -->
-            <a href="tel:+62274451265"
-               class="contact-box contact-link">
-
-                <div class="contact-box-icon">
-                    <i class="fa-solid fa-fax"></i>
-                </div>
-
-                <div class="contact-box-content">
-                    <span class="contact-label">Fax</span>
-
-                    <strong>
-                        +62 274 451265
-                    </strong>
-
-                    <small class="contact-action">
-                        <i class="fa-solid fa-phone"></i>
-                        Hubungi nomor
-                    </small>
-                </div>
-
-            </a>
+                    Hubungi sekarang
+                </small>
+            </div>
+        </a>
 
         </div>
+
 
 
         <!-- SOCIAL MEDIA -->
@@ -861,10 +818,13 @@
     line-height: 1.7;
 }
 
+
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .contact-box {
@@ -922,10 +882,40 @@
     line-height: 1.6;
 }
 
+/* Teks kecil disembunyikan secara default */
 .contact-box-content small {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
     color: #246bce;
     font-size: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
 }
+
+/* Teks muncul ketika kursor diarahkan ke kartu */
+.contact-box:hover .contact-box-content small,
+.contact-box:focus-visible .contact-box-content small {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Teks tetap terlihat pada perangkat layar sentuh */
+@media (hover: none) {
+    .contact-box-content small {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
 
 .social-media-section {
     margin-top: 25px;

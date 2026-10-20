@@ -67,8 +67,8 @@
         </table>
     </div>
     <div class="px-4 pb-4 pt-2">
-        {{ $pertanyaans->links() }}
-    </div>
+    {{ $pertanyaans->onEachSide(2)->links('pagination::bootstrap-5') }}
+</div>
 </div>
 
 <style>
@@ -90,6 +90,34 @@
         border-radius: 6px;
         border: 1.5px solid #e2e6ee;
     }
+    
+            
+        /* Perbaikan ikon navigasi pagination Laravel */
+        nav[role="navigation"] svg,
+        .pagination svg {
+            width: 16px !important;
+            height: 16px !important;
+            max-width: 16px !important;
+            max-height: 16px !important;
+            display: inline-block !important;
+            flex-shrink: 0 !important;
+        }
+
+        /* Rapikan tombol pagination */
+        nav[role="navigation"] a,
+        nav[role="navigation"] button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Cegah ikon SVG melebar mengikuti container */
+        nav[role="navigation"] a svg,
+        nav[role="navigation"] button svg {
+            width: 16px !important;
+            height: 16px !important;
+        }
+
 </style>
 
 @endsection

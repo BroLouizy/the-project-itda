@@ -865,6 +865,15 @@ a {
                     <span>Beranda</span>
                 </a>
 
+                {{-- PROFILE --}}
+                 <a
+                    href="{{ route('student.setting') }}"
+                    class="{{ request()->routeIs('student.setting') ? 'active' : '' }}"
+                >
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Profil Saya</span>
+                </a>
+
                 {{-- TES --}}
 
                 <a
@@ -885,15 +894,6 @@ a {
                     <span>Hasil Tes</span>
                 </a>
 
-                {{-- PROFILE --}}
-
-                <a
-                    href="{{ route('student.setting') }}"
-                    class="{{ request()->routeIs('student.setting') ? 'active' : '' }}"
-                >
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Profil Saya</span>
-                </a>
 
                 {{-- LOGOUT --}}
 
