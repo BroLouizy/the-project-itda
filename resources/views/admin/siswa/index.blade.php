@@ -49,14 +49,45 @@
 <div class="card border-0 shadow-sm" style="border-radius: 16px;">
 
     <div class="p-4 pb-0">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6 class="mb-0 fw-bold">Daftar Siswa</h6>
-            <form method="GET" class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" name="search"
-                       placeholder="Cari nama, email, atau sekolah..."
-                       value="{{ request('search') }}">
-            </form>
+        
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <h6 class="mb-0 fw-bold">Daftar Siswa</h6>
+
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+        <form method="GET" class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="search"
+                   placeholder="Cari nama, email, atau sekolah..."
+                   value="{{ request('search') }}">
+        </form>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="fa-solid fa-download me-1"></i>
+                Export Data
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <a class="dropdown-item"
+                       href="{{ route('admin.siswa.export.excel') }}">
+                        <i class="fa-solid fa-file-excel text-success me-2"></i>
+                        Download Excel (.xlsx)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item"
+                            href="{{ route('admin.siswa.export.csv') }}">
+                                <i class="fa-solid fa-file-csv text-primary me-2"></i>
+                                Download CSV (.csv)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 

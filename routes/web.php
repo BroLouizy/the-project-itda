@@ -122,4 +122,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pertanyaan', [PertanyaanController::class, 'index'])->name('admin.pertanyaan.index');
     Route::get('/admin/pertanyaan/{pertanyaan}/edit', [PertanyaanController::class, 'edit'])->name('admin.pertanyaan.edit');
     Route::put('/admin/pertanyaan/{pertanyaan}', [PertanyaanController::class, 'update'])->name('admin.pertanyaan.update');
+
+    // Export data seluruh siswa
+    Route::get('/admin/siswa/export/excel', [SiswaController::class, 'exportExcel'])
+    ->name('admin.siswa.export.excel');
+
+    Route::get('/admin/siswa/export/csv', [SiswaController::class, 'exportCsv'])
+    ->name('admin.siswa.export.csv');
 });

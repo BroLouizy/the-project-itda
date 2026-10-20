@@ -539,15 +539,29 @@
             const links = document.querySelectorAll('a[href]');
 
             links.forEach(function (link) {
-
                 const href = link.getAttribute('href');
 
-                // Lewati link kosong (#) dan link yang buka tab baru
-                if (!href || href === '#' || link.target === '_blank') {
+                if (
+                    !href ||
+                    href === '#' ||
+                    link.target === '_blank' ||
+                    link.hasAttribute('download') ||
+                    link.closest('.dropdown-menu') ||
+                    href.includes('/export/')
+                ) {
                     return;
                 }
 
                 link.addEventListener('click', function (e) {
+                    if (
+                        e.ctrlKey ||
+                        e.metaKey ||
+                        e.shiftKey ||
+                        e.altKey ||
+                        e.button !== 0
+                    ) {
+                        return;
+                    }
 
                     e.preventDefault();
 
@@ -556,9 +570,7 @@
                     setTimeout(function () {
                         window.location.href = href;
                     }, 200);
-
                 });
-
             });
 
 
@@ -609,6 +621,7 @@
         }
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

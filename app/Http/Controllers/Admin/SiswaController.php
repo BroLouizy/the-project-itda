@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Exports\SiswaExport;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class SiswaController extends Controller
 {
@@ -119,6 +122,73 @@ class SiswaController extends Controller
             'user' => $siswa,
         ])->setPaper('a4', 'landscape');
 
+
         return $pdf->download('Sertifikat-SIMPRODI-' . Str::slug($siswa->name) . '.pdf');
     }
+
+    // TAMBAHKAN KODE EXPORT DI BAWAH INI
+
+    public function exportExcel()
+    {
+        return Excel::download(
+            new SiswaExport(),
+            'data-siswa-simprodi.xlsx'
+        );
+    }
+
+    public function exportCsv(): StreamedResponse
+    {
+        return response()->streamDownload(function () {
+            $output = fopen('php://output', 'w');
+
+            fwrite($output, "\xEF\xBB\xBF");
+
+            fputcsv($output, [
+                'Nama Siswa',
+                'Email',
+                'Nomor Telepon',
+                'Sekolah',
+                'Tipe Sekolah',
+                'Kelas',
+                'Provinsi',
+                'Jurusan',
+                'Tanggal Daftar',
+            ]);
+
+            \App\Models\User::query()
+                ->where('role', 'student')
+                ->select([
+                    'name',
+                    'email',
+                    'phone',
+                    'school_name',
+                    'school_type',
+                    'class_level',
+                    'province',
+                    'major',
+                    'created_at',
+                ])
+                ->orderBy('created_at', 'desc')
+                ->chunk(500, function ($siswaList) use ($output) {
+                    foreach ($siswaList as $siswa) {
+                        fputcsv($output, [
+                            $siswa->name,
+                            $siswa->email,
+                            $siswa->phone,
+                            $siswa->school_name,
+                            $siswa->school_type,
+                            $siswa->class_level,
+                            $siswa->province,
+                            $siswa->major,
+                            $siswa->created_at?->format('Y-m-d H:i:s'),
+                        ]);
+                    }
+                });
+
+            fclose($output);
+        }, 'data-siswa-simprodi.csv', [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+        ]);
+    }
+
 }
