@@ -274,24 +274,40 @@
 
         .layout-wrapper {
             display: flex;
-            min-height: calc(100vh - 88px);
+            height: calc(100vh - 81px);
+            min-height: 0;
+            overflow: hidden;
         }
 
-        /* =========================
-           SIDEBAR KIRI
-        ========================= */
-
         .sidebar {
+            position: fixed;
+            top: 81px;
+            bottom: 0;
+            left: 0;
             width: 240px;
             background: #fff;
             border-right: 1px solid #e2e5e9;
             flex-shrink: 0;
+            overflow-y: auto;
+            z-index: 9;
         }
+
 
         .sidebar-flex {
             display: flex;
             flex-direction: column;
+            min-height: 100%;
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
             height: 100%;
+            margin-left: 240px;
+            padding: 30px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .sidebar a,
@@ -357,6 +373,34 @@
 
         .card {
             border-radius: 14px !important;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .admin-layout {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .admin-sidebar {
+            position: fixed;
+            top: 100px;
+            bottom: 0;
+            left: 0;
+            width: 278px;
+            overflow-y: auto;
+        }
+
+        .admin-main {
+            margin-left: 278px;
+            height: calc(100vh - 100px);
+            overflow-y: auto;
+            box-sizing: border-box;
         }
 
     </style>
