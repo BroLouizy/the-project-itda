@@ -203,6 +203,18 @@
             box-shadow: 0 0 0 3px rgba(44, 92, 245, 0.1);
         }
 
+        select:disabled {
+            background: #eef0f4;
+            color: #9aa3b2;
+            cursor: not-allowed;
+        }
+
+        .field-note {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #b00020;
+        }
+
         .password-wrapper {
             position: relative;
         }
@@ -400,15 +412,20 @@
                 >
             </div>
 
-            <div class="form-group">
-                <label>Provinsi</label>
-                <input
-                    type="text"
-                    name="province"
-                    value="{{ old('province') }}"
-                    placeholder="Contoh: Daerah Istimewa Yogyakarta"
-                    required
-                >
+            {{-- PROVINSI (dropdown seluruh Indonesia) --}}
+            <div class="form-group" id="provinceGroup">
+                <label for="province">Provinsi</label>
+                <select name="province" id="province" required>
+                    <option value="">-- Memuat provinsi... --</option>
+                </select>
+            </div>
+
+            {{-- KABUPATEN / KOTA (menyesuaikan provinsi) --}}
+            <div class="form-group" id="cityGroup">
+                <label for="city">Kabupaten / Kota</label>
+                <select name="city" id="city" required disabled>
+                    <option value="">-- Pilih provinsi dulu --</option>
+                </select>
             </div>
 
             <div class="form-row">
@@ -417,10 +434,10 @@
 
                     <select name="school_type" required>
                         <option value="">-- Pilih --</option>
-                        <option value="SMA">SMA</option>
-                        <option value="SMK">SMK</option>
-                        <option value="MA">MA</option>
-                        <option value="MAK">MAK</option>
+                        <option value="SMA" {{ old('school_type') === 'SMA' ? 'selected' : '' }}>SMA</option>
+                        <option value="SMK" {{ old('school_type') === 'SMK' ? 'selected' : '' }}>SMK</option>
+                        <option value="MA" {{ old('school_type') === 'MA' ? 'selected' : '' }}>MA</option>
+                        <option value="Lainnya" {{ old('school_type') === 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                     </select>
                 </div>
 
@@ -429,23 +446,104 @@
 
                     <select name="class_level" required>
                         <option value="">-- Pilih --</option>
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
+                        <option value="X" {{ old('class_level') === 'X' ? 'selected' : '' }}>X</option>
+                        <option value="XI" {{ old('class_level') === 'XI' ? 'selected' : '' }}>XI</option>
+                        <option value="XII" {{ old('class_level') === 'XII' ? 'selected' : '' }}>XII</option>
+                        <option value="Lainnya" {{ old('class_level') === 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Jurusan</label>
+                <label for="majorSelect">Jurusan</label>
 
+                <select id="majorSelect" required>
+                    <option value="">-- Pilih Jurusan --</option>
+                        <optgroup label="SMA / MA">
+                            <option value="IPA (MIPA)">IPA (MIPA)</option>
+                            <option value="IPS">IPS</option>
+                            <option value="Bahasa dan Budaya">Bahasa dan Budaya</option>
+                            <option value="Keagamaan (MA)">Keagamaan (MA)</option>
+                        </optgroup>
+                        <optgroup label="SMK - Teknologi Informasi">
+                            <option value="Rekayasa Perangkat Lunak (RPL)">Rekayasa Perangkat Lunak (RPL)</option>
+                            <option value="Teknik Komputer dan Jaringan (TKJ)">Teknik Komputer dan Jaringan (TKJ)</option>
+                            <option value="Sistem Informatika, Jaringan dan Aplikasi (SIJA)">Sistem Informatika, Jaringan dan Aplikasi (SIJA)</option>
+                            <option value="Desain Komunikasi Visual (DKV)">Desain Komunikasi Visual (DKV)</option>
+                            <option value="Animasi">Animasi</option>
+                            <option value="Broadcasting dan Perfilman">Broadcasting dan Perfilman</option>
+                        </optgroup>
+                        <optgroup label="SMK - Teknik Otomotif">
+                            <option value="Teknik Kendaraan Ringan (TKR)">Teknik Kendaraan Ringan (TKR)</option>
+                            <option value="Teknik dan Bisnis Sepeda Motor (TBSM)">Teknik dan Bisnis Sepeda Motor (TBSM)</option>
+                            <option value="Teknik Alat Berat">Teknik Alat Berat</option>
+                            <option value="Teknik Bodi Otomotif">Teknik Bodi Otomotif</option>
+                        </optgroup>
+                        <optgroup label="SMK - Teknik Elektro">
+                            <option value="Teknik Instalasi Tenaga Listrik (TITL)">Teknik Instalasi Tenaga Listrik (TITL)</option>
+                            <option value="Teknik Elektronika Industri">Teknik Elektronika Industri</option>
+                            <option value="Teknik Audio Video">Teknik Audio Video</option>
+                            <option value="Teknik Otomasi Industri">Teknik Otomasi Industri</option>
+                            <option value="Mekatronika">Mekatronika</option>
+                        </optgroup>
+                        <optgroup label="SMK - Teknik Mesin & Konstruksi">
+                            <option value="Teknik Pemesinan">Teknik Pemesinan</option>
+                            <option value="Teknik Pengelasan">Teknik Pengelasan</option>
+                            <option value="Teknik Fabrikasi Logam">Teknik Fabrikasi Logam</option>
+                            <option value="Desain Pemodelan dan Informasi Bangunan (DPIB)">Desain Pemodelan dan Informasi Bangunan (DPIB)</option>
+                            <option value="Teknik Konstruksi Batu dan Beton">Teknik Konstruksi Batu dan Beton</option>
+                        </optgroup>
+                        <optgroup label="SMK - Penerbangan & Maritim">
+                            <option value="Teknik Pesawat Udara">Teknik Pesawat Udara</option>
+                            <option value="Teknik Elektronika Pesawat Udara">Teknik Elektronika Pesawat Udara</option>
+                            <option value="Nautika Kapal Niaga">Nautika Kapal Niaga</option>
+                            <option value="Teknika Kapal Niaga">Teknika Kapal Niaga</option>
+                            <option value="Perikanan">Perikanan</option>
+                        </optgroup>
+                        <optgroup label="SMK - Bisnis & Manajemen">
+                            <option value="Akuntansi dan Keuangan Lembaga (AKL)">Akuntansi dan Keuangan Lembaga (AKL)</option>
+                            <option value="Manajemen Perkantoran dan Layanan Bisnis (MPLB)">Manajemen Perkantoran dan Layanan Bisnis (MPLB)</option>
+                            <option value="Bisnis Daring dan Pemasaran (BDP)">Bisnis Daring dan Pemasaran (BDP)</option>
+                            <option value="Perbankan Syariah">Perbankan Syariah</option>
+                        </optgroup>
+                        <optgroup label="SMK - Pariwisata & Tata">
+                            <option value="Perhotelan">Perhotelan</option>
+                            <option value="Kuliner / Tata Boga">Kuliner / Tata Boga</option>
+                            <option value="Tata Busana">Tata Busana</option>
+                            <option value="Tata Kecantikan">Tata Kecantikan</option>
+                            <option value="Usaha Layanan Wisata">Usaha Layanan Wisata</option>
+                        </optgroup>
+                        <optgroup label="SMK - Kesehatan">
+                            <option value="Farmasi Klinis dan Komunitas">Farmasi Klinis dan Komunitas</option>
+                            <option value="Asisten Keperawatan">Asisten Keperawatan</option>
+                            <option value="Teknologi Laboratorium Medik">Teknologi Laboratorium Medik</option>
+                            <option value="Dental Asisten">Dental Asisten</option>
+                        </optgroup>
+                        <optgroup label="SMK - Pertanian">
+                            <option value="Agribisnis Tanaman">Agribisnis Tanaman</option>
+                            <option value="Agribisnis Ternak">Agribisnis Ternak</option>
+                            <option value="Agribisnis Pengolahan Hasil Pertanian">Agribisnis Pengolahan Hasil Pertanian</option>
+                        </optgroup>
+                        <optgroup label="SMK - Seni">
+                            <option value="Seni Musik">Seni Musik</option>
+                            <option value="Seni Tari">Seni Tari</option>
+                            <option value="Seni Rupa">Seni Rupa</option>
+                            <option value="Seni Karawitan">Seni Karawitan</option>
+                        </optgroup>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+
+                {{-- Muncul kalau memilih "Lainnya" --}}
                 <input
                     type="text"
-                    name="major"
-                    value="{{ old('major') }}"
-                    placeholder="Contoh: IPA, IPS, TKJ, RPL"
-                    required
+                    id="majorOther"
+                    maxlength="100"
+                    placeholder="Tulis jurusanmu"
+                    style="display:none; margin-top:8px;"
                 >
+
+                {{-- Nilai yang dikirim ke server --}}
+                <input type="hidden" name="major" id="major" value="{{ old('major') }}">
             </div>
 
             <div class="form-row">
@@ -534,6 +632,137 @@
             `;
         }
     }
+</script>
+
+{{-- DROPDOWN PROVINSI -> KABUPATEN/KOTA (data lokal: public/data/wilayah.json) --}}
+@php
+    $wilayahPath = public_path('data/wilayah.json');
+    $wilayahJson = file_exists($wilayahPath) ? file_get_contents($wilayahPath) : '[]';
+@endphp
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Data seluruh provinsi + kabupaten/kota se-Indonesia (dari file lokal)
+    const WILAYAH = {!! $wilayahJson !!};
+
+    const provinceSelect = document.getElementById('province');
+    const citySelect = document.getElementById('city');
+
+    // Nilai lama (kalau form kembali karena validasi gagal)
+    const oldProvince = @json(old('province'));
+    const oldCity = @json(old('city'));
+
+    // Kalau data wilayah tidak ada, ganti dropdown jadi kolom ketik biasa
+    // supaya form tetap bisa dipakai.
+    function fallbackToText(select, placeholder, value) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = select.name;
+        input.id = select.id;
+        input.required = true;
+        input.placeholder = placeholder;
+        input.value = value || '';
+        select.replaceWith(input);
+    }
+
+    if (!Array.isArray(WILAYAH) || WILAYAH.length === 0) {
+        fallbackToText(provinceSelect, 'Contoh: Daerah Istimewa Yogyakarta', oldProvince);
+        fallbackToText(citySelect, 'Ketik kabupaten/kota', oldCity);
+        return;
+    }
+
+    function fillCities(provinceName, selectedCity) {
+        const province = WILAYAH.find(function (p) { return p.name === provinceName; });
+
+        if (!province) {
+            citySelect.innerHTML = '<option value="">-- Pilih provinsi dulu --</option>';
+            citySelect.disabled = true;
+            return;
+        }
+
+        citySelect.innerHTML = '<option value="">-- Pilih Kabupaten/Kota --</option>';
+
+        province.cities.forEach(function (city) {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+
+        citySelect.disabled = false;
+
+        if (selectedCity) {
+            citySelect.value = selectedCity;
+        }
+    }
+
+    // Isi dropdown provinsi
+    provinceSelect.innerHTML = '<option value="">-- Pilih Provinsi --</option>';
+
+    WILAYAH.forEach(function (province) {
+        const option = document.createElement('option');
+        option.value = province.name;
+        option.textContent = province.name;
+        provinceSelect.appendChild(option);
+    });
+
+    // Kabupaten/kota menyesuaikan provinsi yang dipilih
+    provinceSelect.addEventListener('change', function () {
+        fillCities(provinceSelect.value, null);
+    });
+
+    // Pulihkan pilihan lama kalau ada
+    if (oldProvince) {
+        provinceSelect.value = oldProvince;
+        fillCities(oldProvince, oldCity);
+    }
+});
+</script>
+
+{{-- DROPDOWN JURUSAN --}}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const majorSelect = document.getElementById('majorSelect');
+    const majorOther = document.getElementById('majorOther');
+    const majorHidden = document.getElementById('major');
+    const form = document.getElementById('registerForm');
+
+    const oldMajor = @json(old('major'));
+
+    function syncMajor() {
+        if (majorSelect.value === 'Lainnya') {
+            majorOther.style.display = 'block';
+            majorOther.required = true;
+            majorHidden.value = majorOther.value.trim();
+        } else {
+            majorOther.style.display = 'none';
+            majorOther.required = false;
+            majorHidden.value = majorSelect.value;
+        }
+    }
+
+    // Pulihkan pilihan lama (kalau form kembali karena validasi gagal)
+    if (oldMajor) {
+        const found = Array.from(majorSelect.options).some(function (o) {
+            return o.value === oldMajor;
+        });
+
+        if (found) {
+            majorSelect.value = oldMajor;
+        } else {
+            majorSelect.value = 'Lainnya';
+            majorOther.value = oldMajor;
+        }
+    }
+
+    majorSelect.addEventListener('change', syncMajor);
+    majorOther.addEventListener('input', syncMajor);
+    form.addEventListener('submit', syncMajor);
+
+    syncMajor();
+});
 </script>
 
 </body>

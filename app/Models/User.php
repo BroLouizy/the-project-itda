@@ -19,6 +19,7 @@ class User extends Authenticatable
         'email',
         'school_name',
         'province',
+        'city',
         'school_type',
         'class_level',
         'major',
