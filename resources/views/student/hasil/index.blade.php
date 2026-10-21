@@ -208,9 +208,13 @@
             <div style="position:absolute;bottom:-220px;left:-220px;width:360px;height:360px;
                         background:#c5ccd8;transform:rotate(45deg);"></div>
 
-            {{-- panel putih tengah --}}
-            <div style="position:absolute;top:13px;left:13px;right:13px;bottom:13px;
-                        border-radius:22px;background:#ffffff;"></div>
+            {{-- panel tengah + gambar gedung (transparan) --}}
+            <div id="certificateBg"
+                 data-src="{{ asset('images/bg-sertifikat.jpg') }}"
+                 style="position:absolute;top:13px;left:13px;right:13px;bottom:13px;
+                        border-radius:22px;background-color:#ffffff;
+                        background-image:url('{{ asset('images/bg-sertifikat.jpg') }}');
+                        background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
         </div>
 
         {{-- BRAND KIRI ATAS --}}
@@ -295,10 +299,10 @@
         <div style="position:absolute;left:0;right:0;bottom:48px;text-align:center;">
             <div style="font-family:Georgia,'Times New Roman',serif;font-size:34px;line-height:1.1;
                         font-weight:900;color:#111827;">
-                Tim SIMPRODI
+                Tim Admisi
             </div>
             <div style="margin-top:5px;font-family:Georgia,'Times New Roman',serif;font-size:22px;color:#374151;">
-                Penyelenggara Tes
+                Penyelenggara Tes SIMPRODI
             </div>
         </div>
 
@@ -371,6 +375,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
             }));
+
+            // Pastikan gambar latar gedung bisa dimuat. Kalau gagal, latar dihilangkan
+            // supaya proses download tidak macet.
+            const bgEl = document.getElementById('certificateBg');
+
+            if (bgEl) {
+                await new Promise(function (resolve) {
+                    const test = new Image();
+
+                    const timer = setTimeout(function () {
+                        bgEl.style.backgroundImage = 'none';
+                        resolve();
+                    }, 4000);
+
+                    test.onload = function () {
+                        clearTimeout(timer);
+                        resolve();
+                    };
+
+                    test.onerror = function () {
+                        clearTimeout(timer);
+                        bgEl.style.backgroundImage = 'none';
+                        resolve();
+                    };
+
+                    test.src = bgEl.dataset.src;
+                });
+            }
 
             const canvas = await html2canvas(certificate, {
                 width: 1123,

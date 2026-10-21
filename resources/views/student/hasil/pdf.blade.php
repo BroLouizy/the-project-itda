@@ -292,7 +292,15 @@
 
     <!-- Bingkai -->
     <div class="outer-border-frame"></div>
-    <div class="inner-border-frame"></div>
+    @php
+        $bgFile = public_path('images/bg-sertifikat.jpg');
+        $bgUrl = str_replace('\\', '/', $bgFile);
+    @endphp
+    <div class="inner-border-frame"
+         @if(file_exists($bgFile))
+         style="background-image: url('{{ $bgUrl }}'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+         @endif
+    ></div>
 
     <!-- Brand kiri atas -->
     <div class="header-brand">
@@ -369,8 +377,8 @@
 
     <!-- Footer -->
     <div class="footer-signature">
-        <div class="footer-signature-title">Tim SIMPRODI</div>
-        <div class="footer-signature-sub">Penyelenggara Tes</div>
+        <div class="footer-signature-title">Tim Admisi</div>
+        <div class="footer-signature-sub">Penyelenggara Tes SIMPRODI</div>
     </div>
 
 </div>
