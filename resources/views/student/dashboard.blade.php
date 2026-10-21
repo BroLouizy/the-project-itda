@@ -562,7 +562,7 @@
             <div class="social-media-list">
 
                 <!-- Facebook -->
-                <a href="https://www.facebook.com/ITDA.YK"
+                <a href="https://www.facebook.com/itda.yogyakarta"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="social-item facebook">

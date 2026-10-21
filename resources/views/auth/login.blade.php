@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - SIMPRODI</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+    
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-itda.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -36,55 +37,59 @@
         }
 
         /* ===== PANEL KIRI - BRANDING ===== */
+        .auth-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            min-height: 580px;
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(23, 59, 112, 0.15);
+        }
 
         .brand-panel {
-            flex: 1;
-            border-radius: 26px;
+            flex: 0 0 44%;
             background: linear-gradient(160deg, #173b70 0%, #2c5cf5 100%);
             color: #fff;
-            padding: 50px 45px;
+            padding: 44px 38px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            border-radius: 24px;
         }
 
-
-        .brand-panel::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.06);
-            top: -100px;
-            right: -100px;
+        .form-panel {
+            flex: 1;
+            min-width: 0;
+            padding: 50px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .brand-panel::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            bottom: -60px;
-            left: -60px;
+        .brand-heading {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
         }
 
         .brand-logo {
-            width: 56px;
-            height: 56px;
-            background: rgba(255,255,255,0.15);
+            width: 64px;
+            height: 64px;
+            flex: 0 0 64px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 1;
+            padding: 7px;
+            margin: 0;
         }
 
         .brand-logo img {
@@ -94,10 +99,10 @@
         }
 
         .brand-panel h1 {
-            font-size: 44px;
+            font-size: 40px;
             font-weight: 800;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin: 0;
             position: relative;
             z-index: 1;
         }
@@ -324,21 +329,53 @@
         }
 
         @media (max-width: 850px) {
-            .brand-panel { display: none; }
-            .form-panel { padding: 45px 30px; }
+    .auth-wrapper {
+        max-width: 520px;
+        min-height: auto;
+    }
+
+    .brand-panel {
+        display: none;
+    }
+
+    .form-panel {
+        padding: 45px 30px;
         }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding: 12px;
+        }
+
+        .form-panel {
+            padding: 35px 22px;
+        }
+
+        .form-panel h3 {
+            font-size: 23px;
+        }
+    }
     </style>
 </head>
 
 <body>
+<body>
 
-<div class="brand-panel">
-    <div class="brand-logo">
-        <img src="{{ asset('images/logo-itda.png') }}"
-             alt="Logo ITDA">
-    </div>
+<div class="auth-wrapper">
 
-        <h1>SIMPRODI</h1>
+    <!-- PANEL KIRI - BRANDING -->
+    <div class="brand-panel">
+
+        <div class="brand-heading">
+            <div class="brand-logo">
+                <img src="{{ asset('images/logo-itda.png') }}"
+                     alt="Logo ITDA">
+            </div>
+
+            <h1>SIMPRODI</h1>
+        </div>
+
         <h2>Sistem Identifikasi Minat & Potensi Program Studi</h2>
 
         <p class="brand-tagline">
@@ -350,18 +387,21 @@
                 <i class="fa-solid fa-brain"></i>
                 Kenali minat dan potensi dirimu
             </div>
+
             <div class="brand-feature">
                 <i class="fa-solid fa-chart-simple"></i>
                 Dapatkan hasil analisis instan
             </div>
+
             <div class="brand-feature">
                 <i class="fa-solid fa-graduation-cap"></i>
                 Rekomendasi program studi tepat
             </div>
         </div>
+
     </div>
 
-    {{-- PANEL KANAN - FORM LOGIN --}}
+    <!-- PANEL KANAN - FORM LOGIN -->
     <div class="form-panel">
 
         <h3>Selamat Datang Kembali</h3>

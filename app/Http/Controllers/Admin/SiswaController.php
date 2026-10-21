@@ -122,8 +122,106 @@ class SiswaController extends Controller
             'user' => $siswa,
         ])->setPaper('a4', 'landscape');
 
+        return $pdf->download(
+            'Sertifikat-SIMPRODI-' . Str::slug($siswa->name) . '.pdf'
+        );
+    }
 
-        return $pdf->download('Sertifikat-SIMPRODI-' . Str::slug($siswa->name) . '.pdf');
+    // TAMBAHKAN METHOD TOP 3 DI SINI
+    public function top3Jurusan(User $siswa)
+    {
+        if ($siswa->role !== 'student') {
+            abort(404);
+        }
+
+        $hasil = $siswa->tesResults()
+            ->latest('tanggal_tes')
+            ->first();
+
+        if (!$hasil) {
+            return response()->json([
+                'message' => 'Siswa belum menyelesaikan tes.',
+                'top3' => [],
+            ]);
+        }
+
+        $top3 = collect($hasil->detail_skor)
+            ->sortByDesc('persentase')
+            ->take(3)
+            ->values()
+            ->map(function ($item) {
+                return [
+                    'nama_jurusan' => $item['nama_jurusan']
+                        ?? 'Jurusan tidak diketahui',
+                    'persentase' => (float) ($item['persentase'] ?? 0),
+                ];
+            });
+
+        return response()->json([
+            'top3' => $top3,
+        ]);
+    }
+
+        
+    public function statistikTop3()
+    {
+        $jumlahSiswaTes = 0;
+        $jumlahKemunculan = 0;
+        $statistik = [];
+
+        $siswaList = \App\Models\User::where('role', 'student')->get();
+
+        foreach ($siswaList as $siswa) {
+            // Ambil hasil tes terakhir milik setiap siswa.
+            $hasil = $siswa->tesResults()
+                ->latest('tanggal_tes')
+                ->first();
+
+            if (!$hasil || !is_array($hasil->detail_skor)) {
+                continue;
+            }
+
+            $jumlahSiswaTes++;
+
+            // Ambil tiga jurusan dengan persentase tertinggi.
+            $top3 = collect($hasil->detail_skor)
+                ->sortByDesc('persentase')
+                ->take(3);
+
+            foreach ($top3 as $item) {
+                $namaJurusan = trim($item['nama_jurusan'] ?? '');
+
+                if ($namaJurusan === '') {
+                    continue;
+                }
+
+                if (!isset($statistik[$namaJurusan])) {
+                    $statistik[$namaJurusan] = 0;
+                }
+
+                // Semua posisi Top 3 mendapat satu poin.
+                $statistik[$namaJurusan]++;
+                $jumlahKemunculan++;
+            }
+        }
+
+        arsort($statistik);
+
+        $dataJurusan = collect($statistik)
+            ->map(function ($jumlah, $nama) {
+                return [
+                    'nama_jurusan' => $nama,
+                    'jumlah' => $jumlah,
+                ];
+            })
+            ->values();
+
+        return response()->json([
+            'jumlah_siswa_tes' => $jumlahSiswaTes,
+            'jumlah_kemunculan' => $jumlahKemunculan,
+            'jumlah_jurusan' => count($statistik),
+            'jurusan' => $dataJurusan,
+        ]);
     }
 
     // TAMBAHKAN KODE EXPORT DI BAWAH INI

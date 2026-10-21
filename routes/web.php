@@ -102,13 +102,31 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])
         ->name('admin.dashboard');
 
+
     // Kelola Siswa
-    Route::get('/admin/siswa', [SiswaController::class, 'index'])->name('admin.siswa.index');
-    Route::get('/admin/siswa/{siswa}/edit', [SiswaController::class, 'edit'])->name('admin.siswa.edit');
-    Route::put('/admin/siswa/{siswa}', [SiswaController::class, 'update'])->name('admin.siswa.update');
+    Route::get('/admin/siswa', [SiswaController::class, 'index'])
+        ->name('admin.siswa.index');
+
+    Route::get('/admin/siswa/{siswa}/edit', [SiswaController::class, 'edit'])
+        ->name('admin.siswa.edit');
+
+    Route::put('/admin/siswa/{siswa}', [SiswaController::class, 'update'])
+        ->name('admin.siswa.update');
+
     Route::put('/admin/siswa/{siswa}/reset-password', [SiswaController::class, 'resetPassword'])
         ->name('admin.siswa.reset-password');
-    Route::delete('/admin/siswa/{siswa}', [SiswaController::class, 'destroy'])->name('admin.siswa.destroy');
+
+    Route::delete('/admin/siswa/{siswa}', [SiswaController::class, 'destroy'])
+        ->name('admin.siswa.destroy');
+
+    // Top 3 Jurusan per siswa
+    Route::get('/admin/siswa/{siswa}/top3', [SiswaController::class, 'top3Jurusan'])
+        ->name('admin.siswa.top3');
+
+    // Statistik seluruh Top 3 jurusan
+    Route::get('/admin/siswa/statistik-top3', [SiswaController::class, 'statistikTop3'])
+        ->name('admin.siswa.statistik-top3');
+
 
     // Download sertifikat siswa (admin)
     Route::get('/admin/siswa/{siswa}/sertifikat', [SiswaController::class, 'downloadSertifikat'])
